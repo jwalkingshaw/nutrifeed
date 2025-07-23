@@ -1,12 +1,13 @@
 import { client } from '@/lib/sanity';
 
-const baseUrl = 'https://nutrifeed.vercel.app/'; // ← update to your real URL
+const baseUrl = 'https://nutrifeed.vercel.app'; // ← update to your real URL
 
 export async function GET() {
-  const posts = await client.fetch(`*[_type == "post" && defined(slug.current)]{
-    "slug": slug.current,
-    _updatedAt
-  }`);
+ const posts = await client.fetch(`*[_type == "post" && defined(slug.current) && !(_id in path("drafts.**"))]{
+  "slug": slug.current,
+  _updatedAt
+}`);
+
 
   const staticPages = ['', '/about', '/contact'];
 
