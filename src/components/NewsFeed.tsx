@@ -130,7 +130,7 @@ export default function NewsFeed() {
 
           {!hasMore && posts.length > 0 && (
             <div className="text-center py-8 text-gray-500">
-              <p className="text-lg">You've reached the end!</p>
+              <p className="text-lg">You&apos;ve reached the end!</p>
               <p className="text-sm mt-2">Thanks for reading all our latest posts</p>
             </div>
           )}

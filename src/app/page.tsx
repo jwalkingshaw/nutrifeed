@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Header from '@/components/Header'
 import NewsFeed from '@/components/NewsFeed'
 import { generateBreadcrumbSchema } from '@/lib/schema'
@@ -19,7 +20,9 @@ export default function Home() {
       <div className="min-h-screen">
         <Header />
         <main>
-          <NewsFeed />
+          <Suspense fallback={<div className="flex justify-center py-12">Loading...</div>}>
+            <NewsFeed />
+          </Suspense>
         </main>
       </div>
     </>

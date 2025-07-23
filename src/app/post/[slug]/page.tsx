@@ -1,16 +1,17 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Clock, Calendar, ChevronRight, Home } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
 import Header from '@/components/Header'
 import Container from '@/components/Container'
 import LayoutContainer from '@/components/LayoutContainer'
-import { client, BlogPost, getPostBySlug } from '@/lib/sanity'
+import { BlogPost, getPostBySlug } from '@/lib/sanity'
 import { generateNewsArticleSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 interface PostPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 async function getPost(slug: string): Promise<BlogPost | null> {
@@ -18,7 +19,8 @@ async function getPost(slug: string): Promise<BlogPost | null> {
 }
 
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
-  const post = await getPost(params.slug)
+  const resolvedParams = await params
+  const post = await getPost(resolvedParams.slug)
   
   if (!post) {
     return {
@@ -27,14 +29,13 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   }
 
   const imageUrl = post.coverImage?.asset?.url || '/og-image.jpg'
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/post/${params.slug}`
+  const url = `${process.env.NEXT_PUBLIC_SITE_URL}/post/${resolvedParams.slug}`
 
   return {
     title: `${post.title} | NewsFlow`,
     description: post.excerpt,
     keywords: post.tags,
     authors: [{ name: 'NewsFlow' }],
-    publishedTime: post.publishedAt,
     openGraph: {
       type: 'article',
       title: post.title,
@@ -62,13 +63,14 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPost(params.slug)
+  const resolvedParams = await params
+  const post = await getPost(resolvedParams.slug)
   
   if (!post) {
     notFound()
   }
 
-  const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/post/${params.slug}`
+  const fullUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/post/${resolvedParams.slug}`
   const imageUrl = post.coverImage?.asset?.url || '/og-image.jpg'
   
   const newsArticleSchema = generateNewsArticleSchema(
@@ -142,9 +144,11 @@ export default async function PostPage({ params }: PostPageProps) {
                 components={{
                   types: {
                     image: ({ value }) => (
-                      <img
+                      <Image
                         src={value.asset.url}
                         alt={value.alt || ''}
+                        width={800}
+                        height={400}
                         className="rounded-lg my-8"
                       />
                     ),

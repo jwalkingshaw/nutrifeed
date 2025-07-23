@@ -1,5 +1,6 @@
-import { createClient } from 'next-sanity'
+import { createClient, type PortableTextBlock } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -10,7 +11,7 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client)
 
-export const urlFor = (source: any) => builder.image(source)
+export const urlFor = (source: SanityImageSource) => builder.image(source)
 
 export async function getAllPosts(): Promise<BlogPost[]> {
   return client.fetch(`
@@ -77,7 +78,7 @@ export interface BlogPost {
     current: string
   }
   excerpt: string
-  content: any[]
+  content: PortableTextBlock[]
   coverImage: {
     asset: {
       _id: string
