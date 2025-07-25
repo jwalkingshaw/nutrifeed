@@ -37,7 +37,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             src={imageUrl}
             alt={post.coverImage.alt || post.title}
             fill
-            className="object-cover hover:scale-105 transition-transform duration-300"
+            className="object-cover transition-transform duration-300"
           />
         </div>
       )}
@@ -55,13 +55,13 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
 
         <Link href={`/post/${post.slug.current}`}>
-          <h2 className="text-2xl sm:text-3xl md:text-3xl font-[700] font-inter text-gray-900 mb-3 line-clamp-2 hover:text-blue-600 transition-colors cursor-pointer">
+          <h2 className="text-xl sm:text-xl md:text-xl font-[600] font-inter text-gray-900 mb-3 line-clamp-3 hover:text-orange-600 transition-colors cursor-pointer">
             {post.title}
           </h2>
         </Link>
 
       {post.excerpt && (
-          <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3 leading-relaxed">
+          <p className="text-sm sm:text-sm md:text-sm font-[400] font-inter text-gray-600 mb-4 line-clamp-3 leading-relaxed">
             {post.excerpt}
           </p>
         )}

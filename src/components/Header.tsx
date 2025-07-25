@@ -13,9 +13,7 @@ export default function Header() {
         <div className="flex gap-8 items-center h-16 justify-between">
           {/* Left: Brand matches left column width */}
           <div className="w-full lg:w-[600px] flex items-center space-x-4">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              NewsFlow
-            </h1>
+              
           </div>
 
           {/* Right: Nav matches sidebar width */}
@@ -23,7 +21,7 @@ export default function Header() {
             <nav className="flex space-x-6">
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Technology</a>
-              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Business</a>
+              <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Testing</a>
               <a href="#" className="text-gray-700 hover:text-blue-600 transition-colors">Science</a>
             </nav>
             <button className="p-2 text-gray-500 hover:text-gray-700 transition-colors">
