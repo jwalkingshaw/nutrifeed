@@ -146,7 +146,7 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             </header>
 
-            <div className="prose prose-lg max-w-2xl mx-auto prose-headings:font-inter prose-headings:font-bold prose-p:font-inter prose-p:text-gray-700 prose-p:leading-loose prose-p:mb-6"">
+            <div className="prose prose-lg max-w-2xl mx-auto prose-headings:font-inter prose-headings:font-bold prose-p:font-inter prose-p:text-gray-700 prose-p:leading-loose prose-p:mb-6">
               <PortableText
                 value={post.content}
                 components={{
