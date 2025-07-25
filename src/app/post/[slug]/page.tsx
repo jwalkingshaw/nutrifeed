@@ -105,14 +105,22 @@ export default async function PostPage({ params }: PostPageProps) {
         <Container>
           <LayoutContainer>
             {/* Breadcrumb */}
-            <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-6 pt-6" aria-label="Breadcrumb">
-              <Link href="/" className="hover:text-blue-600 transition-colors flex items-center">
-                <Home size={16} className="mr-1" />
-                Home
-              </Link>
-              <ChevronRight size={16} />
-              <span className="text-gray-900 font-medium">{post.title}</span>
-            </nav>
+            <nav className="text-sm text-gray-500 mb-6 pt-6" aria-label="Breadcrumb">
+  <ol className="flex items-center space-x-2">
+    <li>
+      <Link href="/" className="hover:text-blue-600 transition-colors flex items-center">
+        <Home size={16} className="mr-1" />
+        Home
+      </Link>
+    </li>
+    <li>
+      <ChevronRight size={16} className="text-gray-400" />
+    </li>
+    <li className="truncate max-w-[180px] text-gray-900 font-medium" aria-current="page">
+      {post.title}
+    </li>
+  </ol>
+</nav>
 
             <article>
             <header className="mb-8">
@@ -138,7 +146,7 @@ export default async function PostPage({ params }: PostPageProps) {
               </div>
             </header>
 
-            <div className="prose prose-lg max-w-none prose-headings:font-inter prose-headings:font-bold prose-p:font-inter prose-p:text-gray-700 prose-p:leading-relaxed">
+            <div className="className="prose prose-lg max-w-2xl mx-auto prose-headings:font-inter prose-headings:font-bold prose-p:font-inter prose-p:text-gray-700 prose-p:leading-loose prose-p:mb-6"">
               <PortableText
                 value={post.content}
                 components={{
