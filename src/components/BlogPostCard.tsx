@@ -30,9 +30,9 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   const imageUrl = getImageUrl()
 
   return (
-    <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden">
+    <article className="bg-white overflow-hidden">
       {imageUrl && (
-        <div className="relative h-48 sm:h-64 overflow-hidden">
+        <div className="relative h-48 sm:h-64 rounded-xl overflow-hidden">
           <Image
             src={imageUrl}
             alt={post.coverImage.alt || post.title}
