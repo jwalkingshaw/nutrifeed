@@ -116,7 +116,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
             <article>
             <header className="mb-8">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-[700] font-inter text-gray-900 mb-4 leading-tight">
+              <h1 className="text-3xl sm:text-3xl lg:text-3xl font-[600] font-inter text-gray-900 mb-4 leading-tight">
                 {post.title}
               </h1>
 

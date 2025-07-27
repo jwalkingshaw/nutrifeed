@@ -29,19 +29,23 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   
   const imageUrl = getImageUrl()
 
+
   return (
-    <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
-      {imageUrl && (
-        <div className="relative h-48 sm:h-64 overflow-hidden">
-          <Image
-            src={imageUrl}
-            alt={post.coverImage.alt || post.title}
-            fill
-            className="object-cover transition-transform duration-300"
-          />
-        </div>
-      )}
-      
+
+  <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
+  <Link href={`/post/${post.slug.current}`} className="block">
+    {imageUrl && (
+      <div className="relative h-48 sm:h-64 overflow-hidden">
+        <Image
+          src={imageUrl}
+          alt={post.coverImage.alt || post.title}
+          fill
+          className="object-cover transition-transform duration-300"
+        />
+      </div>
+    )}
+</Link>
+
       <div className="p-4 sm:p-6">
         <div className="flex items-center space-x-2 mb-3">
           {post.tags && post.tags.slice(0, 2).map((tag) => (
@@ -55,7 +59,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
 
         <Link href={`/post/${post.slug.current}`}>
-          <h2 className="text-xl sm:text-xl md:text-xl font-[600] font-inter text-gray-900 mb-3 line-clamp-3 hover:text-orange-600 transition-colors cursor-pointer">
+          <h2 className="text-xl sm:text-xl md:text-xl font-[600] font-inter text-gray-900 mb-3 line-clamp-3 cursor-pointer">
             {post.title}
           </h2>
         </Link>
