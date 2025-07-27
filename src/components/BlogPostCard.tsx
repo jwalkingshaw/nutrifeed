@@ -31,21 +31,18 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
 
   return (
-
-  <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
-  <Link href={`/post/${post.slug.current}`} className="block">
-    {imageUrl && (
-      <div className="relative h-48 sm:h-64 overflow-hidden">
-        <Image
-          src={imageUrl}
-          alt={post.coverImage.alt || post.title}
-          fill
-          className="object-cover transition-transform duration-300"
-        />
-      </div>
-    )}
-</Link>
-
+    <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
+      {imageUrl && (
+        <div className="relative h-48 sm:h-64 overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={post.coverImage.alt || post.title}
+            fill
+            className="object-cover transition-transform duration-300"
+          />
+        </div>
+      )}
+      
       <div className="p-4 sm:p-6">
         <div className="flex items-center space-x-2 mb-3">
           {post.tags && post.tags.slice(0, 2).map((tag) => (
