@@ -31,15 +31,17 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
 
   return (
-    <article className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden border border-gray-100">
+    <article className="bg-white rounded-2xl overflow-hidden">
       {imageUrl && (
         <div className="relative h-48 sm:h-64 overflow-hidden">
+          <Link href={`/post/${post.slug.current}`}>
           <Image
             src={imageUrl}
             alt={post.coverImage.alt || post.title}
             fill
             className="object-cover transition-transform duration-300"
           />
+        </Link>
         </div>
       )}
       
