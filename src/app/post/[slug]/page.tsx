@@ -148,7 +148,7 @@ export default async function PostPage({ params }: PostPageProps) {
                 alt={post.coverImage.alt || post.title}
                 width={800}
                 height={400}
-                className="w-full h-auto object-cover rounded-tr-[50px]"
+                className="w-full h-auto object-cover"
                 priority
               />
             </div>
