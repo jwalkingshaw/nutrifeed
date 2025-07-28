@@ -31,7 +31,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
 
   return (
-    <article className="bg-white rounded-2xl overflow-hidden">
+    <article className="oklch-hover rounded-2xl overflow-hidden">
       {imageUrl && (
         <div className="relative h-48 sm:h-64 overflow-hidden">
           <Link href={`/post/${post.slug.current}`}>
