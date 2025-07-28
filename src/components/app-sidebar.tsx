@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Settings, Files } from "lucide-react"
+import { Calendar, Home, Inbox, Settings, Files, Monitor, TestTube, Beaker } from "lucide-react"
 
 import {
   Sidebar,
@@ -11,13 +11,32 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
 
-// Menu items.
-const items = [
+// Navigation items.
+const navigationItems = [
   {
     title: "Home",
     url: "/",
     icon: Home,
   },
+  {
+    title: "Technology",
+    url: "#",
+    icon: Monitor,
+  },
+  {
+    title: "Testing",
+    url: "#",
+    icon: TestTube,
+  },
+  {
+    title: "Science",
+    url: "#",
+    icon: Beaker,
+  },
+]
+
+// App items.
+const appItems = [
   {
     title: "Assets",
     url: "#",
@@ -44,15 +63,31 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
+        {/* Navigation Section */}
         <SidebarGroup>
-          <SidebarGroupLabel><img 
-                 src="\StacksetLogo.svg" 
-                 alt="Stackset Logo" 
-                 className="h-10 w-auto"
-                /></SidebarGroupLabel>
+          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {navigationItems.map((item) => (
+                <SidebarMenuItem key={item.title}>
+                  <SidebarMenuButton asChild>
+                    <a href={item.url}>
+                      <item.icon />
+                      <span>{item.title}</span>
+                    </a>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* App Section */}
+        <SidebarGroup>
+          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {appItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <a href={item.url}>

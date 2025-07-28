@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Merriweather } from "next/font/google";
 import "./globals.css";
 import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/schema";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +19,13 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-merriweather',
 });
 
 export const metadata: Metadata = {
@@ -71,7 +79,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${merriweather.variable} antialiased`}
       >
         <script
           type="application/ld+json"
@@ -85,16 +93,18 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <div className="min-h-screen flex justify-center">
-          <div className="w-full max-w-7xl">
-            <SidebarProvider>
+        <div className="min-h-screen">
+          <SidebarProvider>
+            <Header />
+            <div className="flex pt-16">
               <AppSidebar />
-              <main>
-                <SidebarTrigger />
-                {children}
-              </main>
-            </SidebarProvider>
-          </div>
+              <SidebarInset className="flex-1 flex flex-col items-center px-8 py-8">
+                <div className="max-w-3xl w-full">
+                  {children}
+                </div>
+              </SidebarInset>
+            </div>
+          </SidebarProvider>
         </div>
       </body>
     </html>

@@ -40,7 +40,13 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       slug,
       excerpt,
       content,
-      coverImage,
+      coverImage {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
       author->{
         name,
         image,

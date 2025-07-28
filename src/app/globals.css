@@ -11,8 +11,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-inter: var(--font-inter);
+  --font-merriweather: var(--font-merriweather);
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: oklch(94% 0.005 270);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -51,12 +52,16 @@ body {
   padding: 0;
 }
 
-* {
-  box-sizing: border-box;
+.prose p {
+  font-family: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
-p {
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+.prose li {
+  font-family: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .layout-container {
