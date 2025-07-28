@@ -65,7 +65,6 @@ export function AppSidebar() {
       <SidebarContent>
         {/* Navigation Section */}
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {navigationItems.map((item) => (
