@@ -97,9 +97,9 @@ export default async function PostPage({ params }: PostPageProps) {
         }}
       />
       
-      <div>
-          {/* Breadcrumb */}
-          <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+      <>
+        {/* Breadcrumb */}
+        <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2">
             <li>
               <Link href="/" className="hover:text-blue-600 transition-colors flex items-center">
@@ -154,7 +154,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-[640px] mx-auto">
+          <div className="prose prose-lg max-w-none">
             <PortableText
               value={post.content}
               components={{
@@ -200,7 +200,7 @@ export default async function PostPage({ params }: PostPageProps) {
             />
           </div>
         </article>
-      </div>
+      </>
     </>
   )
 }

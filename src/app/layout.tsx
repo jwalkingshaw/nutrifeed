@@ -98,10 +98,8 @@ export default function RootLayout({
             <Header />
             <div className="flex pt-16">
               <AppSidebar />
-              <SidebarInset className="flex-1 flex flex-col items-center px-8 py-8">
-                <div className="max-w-3xl w-full">
-                  {children}
-                </div>
+              <SidebarInset className="flex-1">
+                {children}
               </SidebarInset>
             </div>
           </SidebarProvider>
