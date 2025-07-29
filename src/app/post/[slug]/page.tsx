@@ -118,7 +118,7 @@ export default async function PostPage({ params }: PostPageProps) {
 
         <article>
           <header className="mb-8">
-            <h1 className="text-3xl sm:text-3xl lg:text-3xl font-[600] font-inter text-gray-900 mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-2xl lg:text-3xl font-[600] font-inter text-gray-900 mb-4 leading-tight">
               {post.title}
             </h1>
 
@@ -132,11 +132,7 @@ export default async function PostPage({ params }: PostPageProps) {
                     day: 'numeric'
                   })}
                 </time>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Clock size={16} />
-                <span>{post.estimatedReadingTime} min read</span>
-              </div>
+              </div>             
             </div>
           </header>
 

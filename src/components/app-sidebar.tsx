@@ -1,6 +1,7 @@
 "use client"
 
-import { Calendar, Home, Inbox, Settings, Files, Monitor, TestTube, Beaker, PanelLeft } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Calendar, Home, Inbox, Settings, Files, Monitor, TestTube, Beaker, Menu } from "lucide-react"
 
 import {
   Sidebar,
@@ -65,23 +66,96 @@ const appItems = [
 ]
 
 export function AppSidebar() {
-  const { toggleSidebar, state } = useSidebar()
+  const { toggleSidebar, state, isMobile } = useSidebar()
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  if (!isClient) {
+    // Server-side render: render as desktop version to avoid hydration mismatch
+    return (
+      <Sidebar collapsible="icon">
+        <div className="absolute top-4 left-2 z-10">
+          <button
+            onClick={toggleSidebar}
+            className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+            aria-label="Toggle sidebar"
+          >
+            <Menu size={20} />
+          </button>
+        </div>
+        
+        <div className="pt-16">
+          <SidebarHeader>
+            <div className="flex items-center gap-2">
+              {/* No header text needed */}
+            </div>
+          </SidebarHeader>
+        
+          <SidebarContent>
+            {/* Navigation Section */}
+            <SidebarGroup>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {navigationItems.map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton asChild tooltip={item.title}>
+                        <a href={item.url}>
+                          <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
+                          <span>{item.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+
+            {/* App Section */}
+            <SidebarGroup>
+              <SidebarGroupLabel>Application</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {appItems.map((item) => (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton asChild tooltip={item.title}>
+                        <a href={item.url}>
+                          <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
+                          <span>{item.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          </SidebarContent>
+        </div>
+      </Sidebar>
+    )
+  }
 
   return (
     <Sidebar collapsible="icon">
-      <div className="pt-16"> {/* Add padding for header height */}
+      {/* Desktop trigger at top, left-aligned with icons */}
+      {!isMobile && (
+        <div className="absolute top-4 left-2 z-10">
+          <button
+            onClick={toggleSidebar}
+            className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+            aria-label={state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"}
+          >
+            <Menu size={20} />
+          </button>
+        </div>
+      )}
+      
+      <div className={isMobile ? "pt-20" : "pt-16"}> {/* Add extra padding for mobile header */}
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleSidebar}
-              className="size-7"
-              aria-label={state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"}
-            >
-              <PanelLeft className={state === "collapsed" ? "rotate-180" : ""} />
-            </Button>
-            <span className="group-data-[collapsible=icon]:hidden font-semibold">Menu</span>
+            {/* No header text needed */}
           </div>
         </SidebarHeader>
       
@@ -94,7 +168,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
                     <a href={item.url}>
-                      <item.icon />
+                      <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
@@ -113,7 +187,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild tooltip={item.title}>
                     <a href={item.url}>
-                      <item.icon />
+                      <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
                       <span>{item.title}</span>
                     </a>
                   </SidebarMenuButton>
