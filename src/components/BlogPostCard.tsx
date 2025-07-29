@@ -42,7 +42,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         className="object-cover transition-transform duration-300"
       />
       {/* Overlay div */}
-      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-2 transition-opacity duration-300 pointer-events-none"></div>
     </Link>
   </div>
 )}
