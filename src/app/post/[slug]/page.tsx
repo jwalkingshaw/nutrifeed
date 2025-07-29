@@ -183,19 +183,19 @@ export default async function PostPage({ params }: PostPageProps) {
                   ),
                 },
                 block: {
-                  normal: ({ children }) => <p className="font-merriweather text-gray-700 leading-loose mb-4">{children}</p>,
+                  normal: ({ children }) => <p className="font-inter leading-loose mb-4">{children}</p>,
                   h1: ({ children }) => <h1 className="font-inter font-bold text-3xl mt-8 mb-4">{children}</h1>,
                   h2: ({ children }) => <h2 className="font-inter font-bold text-2xl mt-6 mb-3">{children}</h2>,
                   h3: ({ children }) => <h3 className="font-inter font-bold text-xl mt-5 mb-2">{children}</h3>,
-                  bullet: ({ children }) => <ul className="list-disc list-outside ml-6 pl-2 my-6 space-y-3 font-merriweather text-gray-700 leading-loose">{children}</ul>,
-                  number: ({ children }) => <ol className="list-decimal list-outside ml-6 pl-2 my-6 space-y-3 font-merriweather text-gray-700 leading-loose">{children}</ol>,
+                  bullet: ({ children }) => <ul className="list-disc list-outside ml-6 pl-2 my-6 space-y-3 font-inter text-gray-700 leading-loose">{children}</ul>,
+                  number: ({ children }) => <ol className="list-decimal list-outside ml-6 pl-2 my-6 space-y-3 font-inter text-gray-700 leading-loose">{children}</ol>,
                   blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 italic text-gray-600 font-merriweather">
+                    <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 italic text-gray-600 font-inter">
                       {children}
                     </blockquote>
                   ),
                 },
-                listItem: ({ children }) => <li className="font-merriweather text-gray-700 leading-loose">{children}</li>,
+                listItem: ({ children }) => <li className="font-inter leading-loose">{children}</li>,
               }}
             />
           </div>
