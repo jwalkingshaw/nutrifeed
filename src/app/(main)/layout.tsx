@@ -22,7 +22,7 @@ export default function MainLayout({
           </main>
           
           {/* Right sidebar */}
-          <aside className="w-[320px] flex-shrink-0 bg-gray-50 rounded-lg p-6 h-fit sticky top-8">
+          <aside className="w-[320px] flex-shrink-0 bg-gray-50 rounded-lg p-6 h-fit sticky top-20">
             <h3 className="font-bold text-lg mb-4">Most Popular</h3>
             <div className="space-y-3">
               <div className="text-sm">Article 1</div>

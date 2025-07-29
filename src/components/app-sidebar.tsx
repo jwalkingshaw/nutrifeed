@@ -1,4 +1,6 @@
-import { Calendar, Home, Inbox, Settings, Files, Monitor, TestTube, Beaker } from "lucide-react"
+"use client"
+
+import { Calendar, Home, Inbox, Settings, Files, Monitor, TestTube, Beaker, PanelLeft } from "lucide-react"
 
 import {
   Sidebar,
@@ -9,7 +11,10 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarHeader,
+  useSidebar,
 } from "@/components/ui/sidebar"
+import { Button } from "@/components/ui/button"
 
 // Navigation items.
 const navigationItems = [
@@ -60,8 +65,26 @@ const appItems = [
 ]
 
 export function AppSidebar() {
+  const { toggleSidebar, state } = useSidebar()
+
   return (
-    <Sidebar>
+    <Sidebar collapsible="icon">
+      <div className="pt-16"> {/* Add padding for header height */}
+        <SidebarHeader>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleSidebar}
+              className="size-7"
+              aria-label={state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"}
+            >
+              <PanelLeft className={state === "collapsed" ? "rotate-180" : ""} />
+            </Button>
+            <span className="group-data-[collapsible=icon]:hidden font-semibold">Menu</span>
+          </div>
+        </SidebarHeader>
+      
       <SidebarContent>
         {/* Navigation Section */}
         <SidebarGroup>
@@ -69,7 +92,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild tooltip={item.title}>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -88,7 +111,7 @@ export function AppSidebar() {
             <SidebarMenu>
               {appItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild tooltip={item.title}>
                     <a href={item.url}>
                       <item.icon />
                       <span>{item.title}</span>
@@ -100,6 +123,7 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      </div>
     </Sidebar>
   )
 }
