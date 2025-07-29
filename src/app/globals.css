@@ -12,7 +12,7 @@
   --font-inter: var(--font-inter);
   --font-merriweather: var(--font-merriweather);
   --radius: 0.625rem;
-  --background: oklch(0.9702 0 0);
+  --background: oklch(100% 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -53,26 +53,40 @@
 }
 
 .oklch-hover {
-  background-color: oklch(0.9702 0 0);
+  background-color: oklch(55.272% 0.19059 34.805);
   transition: background-color 0.3s;
 }
 
-.oklch-hover:hover {
-  background-color: oklch(100% 0 0);
+.hover-custom-orange:hover {
+  color: oklch(0.6962 0.1972 35.64);
+}
+
+
+.image-hover-container:hover::before {
+  background-color: rgba(0, 0, 0, 0.3); /* 30% dark overlay */
 }
 
 body {
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: oklch(0.213 0.0019 106.56);
   margin: 0;
   padding: 0;
 }
 
 .prose p {
-  font-family: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: var(--font-inter), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: oklch(0.213 0.0019 106.56);
 }
 
 .prose li {
-  font-family: var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+  font-family: var(--font-inter), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+  font-weight: 400;
+  font-size: 16px;
+  color: oklch(0.213 0.0019 106.56);
 }
 
 * {

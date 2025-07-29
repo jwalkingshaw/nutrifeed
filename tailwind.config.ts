@@ -14,16 +14,17 @@ const config: Config = {
         'geist-sans': ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         'geist-mono': ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
+   
       typography: {
         DEFAULT: {
           css: {
             p: {
-              fontFamily: 'var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+              fontFamily: 'var(--font-inter), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
               color: '#374151',
               lineHeight: '1.75',
             },
             article: {
-              fontFamily: 'var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
             },
             h1: {
               fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
@@ -35,10 +36,10 @@ const config: Config = {
               fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
             },
             'ul > li': {
-              fontFamily: 'var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
             },
             'ol > li': {
-              fontFamily: 'var(--font-merriweather), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
             }
           }
         }

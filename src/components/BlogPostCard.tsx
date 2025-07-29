@@ -31,19 +31,21 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
 
   return (
-    <article className="oklch-hover overflow-hidden">
+    <article className="overflow-hidden">
       {imageUrl && (
-        <div className="relative h-48 sm:h-64 overflow-hidden">
-          <Link href={`/post/${post.slug.current}`}>
-          <Image
-            src={imageUrl}
-            alt={post.coverImage.alt || post.title}
-            fill
-            className="object-cover transition-transform duration-300"
-          />
-        </Link>
-        </div>
-      )}
+  <div className="relative h-48 sm:h-64 overflow-hidden group rounded-md">
+    <Link href={`/post/${post.slug.current}`}>
+      <Image
+        src={imageUrl}
+        alt={post.coverImage.alt || post.title}
+        fill
+        className="object-cover transition-transform duration-300"
+      />
+      {/* Overlay div */}
+      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none"></div>
+    </Link>
+  </div>
+)}
       
       <div className="p-4 sm:p-6">
         <div className="flex items-center space-x-2 mb-3">
@@ -58,7 +60,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
 
         <Link href={`/post/${post.slug.current}`}>
-          <h2 className="text-3xl sm:text-2xl md:text-3xl font-[700] font-inter text-gray-900 mb-3 line-clamp-3 cursor-pointer">
+          <h2 className="text-3xl sm:text-2xl md:text-3xl font-[700] font-inter text-gray-900 hover:text-[oklch(0.6962_0.1972_35.64)] transition-colors duration-200 mb-3 line-clamp-3 cursor-pointer">
             {post.title}
           </h2>
         </Link>  
