@@ -68,12 +68,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2 text-xs text-gray-500">
-            <time>{new Date(post.publishedAt).toLocaleDateString()}</time>
-            <span>•</span>
-            <div className="flex items-center space-x-1">
-              <Clock size={12} />
-              <span>{post.estimatedReadingTime} min read</span>
-            </div>
+            <time>{new Date(post.publishedAt).toLocaleDateString()}</time>           
           </div>
         </div>
 
