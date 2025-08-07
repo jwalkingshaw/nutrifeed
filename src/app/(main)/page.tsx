@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import NewsFeed from '@/components/NewsFeed'
+import TopBanner from '@/components/TopBanner'
 import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
           __html: JSON.stringify(breadcrumbSchema),
         }}
       />
+      
+      <TopBanner />
       
       <Suspense fallback={<div className="flex justify-center py-12">Loading...</div>}>
         <NewsFeed />

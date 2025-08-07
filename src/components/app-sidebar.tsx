@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button"
 // Navigation items.
 const navigationItems = [
   {
-    title: "Home",
+    title: "Stackcess IQ",
     url: "/",
     icon: Home,
   },
@@ -103,7 +103,7 @@ export function AppSidebar() {
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton asChild tooltip={item.title}>
                         <a href={item.url}>
-                          <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
+                          <item.icon size={20} className="text-black hover:text-gray-500 transition-colors" />
                           <span>{item.title}</span>
                         </a>
                       </SidebarMenuButton>
@@ -122,7 +122,7 @@ export function AppSidebar() {
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton asChild tooltip={item.title}>
                         <a href={item.url}>
-                          <item.icon size={20} className="text-gray-500 hover:text-gray-700 transition-colors" />
+                          <item.icon size={20} className="text-black hover:text-gray-500 transition-colors" />
                           <span>{item.title}</span>
                         </a>
                       </SidebarMenuButton>
@@ -139,12 +139,12 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      {/* Desktop trigger at top, left-aligned with icons */}
+      {/* Desktop trigger positioned under announcement bar */}
       {!isMobile && (
-        <div className="absolute top-4 left-2 z-10">
+        <div className="absolute top-1 left-2 z-10">
           <button
             onClick={toggleSidebar}
-            className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
+            className="p-2 text-black hover:text-gray-500 transition-colors"
             aria-label={state === "collapsed" ? "Expand sidebar" : "Collapse sidebar"}
           >
             <Menu size={20} />
@@ -152,7 +152,7 @@ export function AppSidebar() {
         </div>
       )}
       
-      <div className={isMobile ? "pt-20" : "pt-16"}> {/* Add extra padding for mobile header */}
+      <div className={isMobile ? "pt-20" : "pt-8"}> {/* Add extra padding for mobile header */}
         <SidebarHeader>
           <div className="flex items-center gap-2">
             {/* No header text needed */}

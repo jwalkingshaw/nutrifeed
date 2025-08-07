@@ -1,8 +1,17 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+import SidebarBanner from '@/components/SidebarBanner'
+import TopArticles from '@/components/TopArticles'
+
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname()
+  const showTopArticles = pathname !== '/marketing'
+  const isMarketingPage = pathname === '/marketing'
   return (
     <div className="w-full min-h-screen">
       {/* Mobile layout */}
@@ -12,45 +21,38 @@ export default function MainLayout({
         </main>
         
         {/* Mobile sidebar - shown below content */}
-        <aside className="w-full bg-gray-50 rounded-lg p-4 mt-6">
-          <h3 className="font-bold text-lg mb-4">Most Popular</h3>
-          <div className="space-y-3">
-            <div className="text-sm">Article 1</div>
-            <div className="text-sm">Article 2</div>
-            <div className="text-sm">Article 3</div>
+        <aside className="w-full mt-6">
+          <div className="mb-4 flex justify-center">
+            <SidebarBanner />
           </div>
+          {showTopArticles && <TopArticles />}
         </aside>
       </div>
 
       {/* Desktop layout */}
       <div className="hidden md:block w-full min-h-screen">
-        {/* Center content in the available space after sidebar */}
-        <div className="px-8 py-8">
-          {/* Container that centers content accounting for sidebar width */}
-          <div 
-            className="mx-auto flex gap-8"
-            style={{
-              width: 'calc(100vw - 16rem - 4rem)', // Full width minus sidebar minus padding
-              marginLeft: 'calc((100vw - 16rem - 1020px - 4rem) / 2)', // Center the 1020px content
-              maxWidth: '1020px'
-            }}
-          >
-            {/* Main content - fixed width */}
-            <main className="w-[700px] flex-shrink-0">
+        {isMarketingPage ? (
+          /* Marketing page - full width */
+          <main className="w-full">
+            {children}
+          </main>
+        ) : (
+          /* Other pages - with sidebar */
+          <div className="px-8 py-8 relative">
+            {/* Main content - centered */}
+            <main className="w-[700px] lg:w-[600px] mx-auto">
               {children}
             </main>
             
-            {/* Right sidebar */}
-            <aside className="w-[320px] flex-shrink-0 bg-gray-50 rounded-lg p-6 h-fit sticky top-20">
-              <h3 className="font-bold text-lg mb-4">Most Popular</h3>
-              <div className="space-y-3">
-                <div className="text-sm">Article 1</div>
-                <div className="text-sm">Article 2</div>
-                <div className="text-sm">Article 3</div>
+            {/* Right sidebar - positioned absolutely */}
+            <aside className="w-[220px] lg:w-[180px] h-fit sticky top-[6.5rem] absolute right-8 top-8">
+              <div className="mb-6">
+                <SidebarBanner />
               </div>
+              {showTopArticles && <TopArticles />}
             </aside>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )
