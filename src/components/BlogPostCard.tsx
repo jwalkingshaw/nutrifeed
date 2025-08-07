@@ -60,7 +60,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
 
         <Link href={`/post/${post.slug.current}`}>
-          <h2 className="text-3xl sm:text-2xl md:text-3xl font-[700] font-inter text-gray-900 hover:text-[oklch(0.6962_0.1972_35.64)] transition-colors duration-200 mb-3 line-clamp-3 cursor-pointer">
+          <h2 className="text-3xl sm:text-2xl md:text-3xl font-[700] font-inter text-gray-900 hover:text-[oklch(0.6048 0.216559 257.2136)] transition-colors duration-200 mb-3 line-clamp-3 cursor-pointer">
             {post.title}
           </h2>
         </Link>  

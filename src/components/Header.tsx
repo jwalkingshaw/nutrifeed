@@ -2,13 +2,15 @@
 
 import { Menu } from 'lucide-react'
 import { useSidebar } from './ui/sidebar'
+import { Button } from './ui/button'
+import Link from 'next/link'
 
 export default function Header() {
   const { state, isMobile, setOpenMobile, openMobile } = useSidebar()
   
   return (
     <header 
-      className={`fixed top-0 right-0 z-[60] navbar transition-all duration-200 ease-linear ${
+      className={`fixed top-[2rem] right-0 z-[60] navbar transition-all duration-200 ease-linear ${
         isMobile 
           ? "left-0" // Full width on mobile
           : state === "collapsed" 
@@ -19,16 +21,35 @@ export default function Header() {
       <div className="w-full h-16 flex items-center justify-between px-4">
         {/* Left: Logo */}
         <div className="flex items-center">
+          {/* Mobile Logo - hidden on md screens and up */}
           <img 
-            src="\StacksetLogo.svg" 
-            alt="Stackset Logo" 
-            className="h-8 w-auto"
+            src="/stackcess-icon-wb-logo.png" 
+            alt="Stackcess Logo" 
+            className="h-4 w-auto block md:hidden"
+          />
+          
+          {/* Desktop Logo - hidden on screens smaller than md */}
+          <img 
+            src="/stackcess-word-logo.svg" 
+            alt="Stackcess Logo" 
+            className="h-6 w-auto hidden md:block"
           />
         </div>
 
-        {/* Right: Mobile menu trigger (only on mobile) */}
-        {isMobile && (
-          <div className="flex items-center">
+        {/* Right: Get Started Button + Mobile menu trigger */}
+        <div className="flex items-center gap-3">
+          {/* Get Started Button - always visible */}
+          <Link href="/marketing">
+            <Button 
+              size="sm" 
+              className="bg-black text-white hover:bg-white hover:text-black border border-black transition-all duration-200 font-medium"
+            >
+              Get Started
+            </Button>
+          </Link>
+          
+          {/* Mobile menu trigger (only on mobile) */}
+          {isMobile && (
             <button
               onClick={() => setOpenMobile(!openMobile)}
               className="p-2 text-gray-500 hover:text-gray-700 transition-colors"
@@ -36,8 +57,8 @@ export default function Header() {
             >
               <Menu size={20} />
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </header>
   )

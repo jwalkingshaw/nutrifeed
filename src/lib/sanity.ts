@@ -99,3 +99,84 @@ export interface BlogPost {
   tags: string[]
   estimatedReadingTime: number
 }
+
+export interface Banner {
+  _id: string
+  campaignName: string
+  placement: 'top' | 'sidebar'
+  desktopImage: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  mobileImage?: {
+    asset: {
+      _id: string
+      url: string
+    }
+    alt?: string
+  }
+  altText: string
+  clickThroughUrl: string
+  targetBlank: boolean
+  startDate: string
+  endDate: string
+  isActive: boolean
+  priority: number
+  clickTracking: boolean
+  notes?: string
+}
+
+export async function getActiveBanners(placement?: 'top' | 'sidebar'): Promise<Banner[]> {
+  const now = new Date().toISOString()
+  const placementFilter = placement ? ` && placement == "${placement}"` : ''
+  
+  return client.fetch(`
+    *[_type == "banner" 
+      && isActive == true 
+      && startDate <= "${now}" 
+      && endDate >= "${now}"
+      ${placementFilter}
+    ] | order(priority desc) {
+      _id,
+      campaignName,
+      placement,
+      desktopImage {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+      mobileImage {
+        asset->{
+          _id,
+          url
+        },
+        alt
+      },
+      altText,
+      clickThroughUrl,
+      targetBlank,
+      startDate,
+      endDate,
+      isActive,
+      priority,
+      clickTracking,
+      notes
+    }
+  `)
+}
+
+export async function getBannerByPlacement(placement: 'top' | 'sidebar'): Promise<Banner | null> {
+  const banners = await getActiveBanners(placement)
+  return banners.length > 0 ? banners[0] : null
+}
+
+export async function trackBannerClick(bannerId: string) {
+  // This could be extended to store click analytics in Sanity or external service
+  console.log(`Banner clicked: ${bannerId}`)
+  // Future: Add analytics tracking here
+}
