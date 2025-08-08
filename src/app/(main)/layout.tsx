@@ -47,7 +47,7 @@ export default function MainLayout({
               </main>
               
               {/* Right sidebar - minimum width to fit banners */}
-              <aside className="w-[300px] md:w-[320px] h-fit sticky top-[6.5rem] flex-shrink-0">
+              <aside className="w-[300px] md:w-[320px] h-fit sticky top-[7rem] flex-shrink-0">
                 <div className="mb-6">
                   <SidebarBanner />
                 </div>

@@ -111,7 +111,7 @@ export default function RootLayout({
           <AnnouncementBar />
           <SidebarProvider defaultOpen={false}>
             <Header />
-            <div className="flex pt-[6.5rem] min-h-[calc(100vh-6.5rem)] flex-col">
+            <div className="flex pt-[7rem] min-h-[calc(100vh-7rem)] flex-col">
               <div className="relative">
                 <AppSidebar />
                 <MainContentWrapper>
