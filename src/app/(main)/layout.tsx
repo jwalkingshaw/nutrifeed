@@ -38,19 +38,22 @@ export default function MainLayout({
           </main>
         ) : (
           /* Other pages - with sidebar */
-          <div className="px-8 py-8 relative">
-            {/* Main content - centered */}
-            <main className="w-[700px] lg:w-[600px] mx-auto">
-              {children}
-            </main>
-            
-            {/* Right sidebar - positioned absolutely */}
-            <aside className="w-[220px] lg:w-[180px] h-fit sticky top-[6.5rem] absolute right-8 top-8">
-              <div className="mb-6">
-                <SidebarBanner />
-              </div>
-              {showTopArticles && <TopArticles />}
-            </aside>
+          <div className="px-4 md:px-6 lg:px-8 py-8 flex justify-center">
+            {/* Container with max width for large screens */}
+            <div className="w-full max-w-[1300px] flex gap-4 md:gap-6 lg:gap-8 justify-center">
+              {/* Main content */}
+              <main className="w-full max-w-[700px] md:w-[600px] lg:w-[700px] flex-shrink-0">
+                {children}
+              </main>
+              
+              {/* Right sidebar - minimum width to fit banners */}
+              <aside className="w-[300px] md:w-[320px] h-fit sticky top-[6.5rem] flex-shrink-0">
+                <div className="mb-6">
+                  <SidebarBanner />
+                </div>
+                {showTopArticles && <TopArticles />}
+              </aside>
+            </div>
           </div>
         )}
       </div>

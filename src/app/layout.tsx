@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono, Inter, Merriweather, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/schema";
-import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Header from "@/components/Header";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import Footer from "@/components/Footer";
+import MainContentWrapper from "@/components/MainContentWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,16 +109,14 @@ export default function RootLayout({
         />
         <div className="min-h-screen">
           <AnnouncementBar />
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={false}>
             <Header />
             <div className="flex pt-[6.5rem] min-h-[calc(100vh-6.5rem)] flex-col">
               <div className="relative">
                 <AppSidebar />
-                <div className="w-full flex justify-center">
-                  <div className="w-full max-w-4xl px-4">
-                    {children}
-                  </div>
-                </div>
+                <MainContentWrapper>
+                  {children}
+                </MainContentWrapper>
               </div>
               <div className="w-full">
                 <Footer />

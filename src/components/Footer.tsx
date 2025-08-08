@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Twitter, Facebook, Instagram, Linkedin, Github } from 'lucide-react'
+import { Twitter, Instagram, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -63,20 +63,12 @@ export default function Footer() {
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Facebook size={24} />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Instagram size={24} />
                 <span className="sr-only">Instagram</span>
               </Link>
               <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Linkedin size={24} />
                 <span className="sr-only">LinkedIn</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Github size={24} />
-                <span className="sr-only">GitHub</span>
               </Link>
             </div>
           </div>

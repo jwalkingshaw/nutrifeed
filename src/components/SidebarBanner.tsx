@@ -32,8 +32,8 @@ export default function SidebarBanner() {
   if (loading) {
     return (
       <div>
-        <div className="bg-gray-200 w-[300px] h-[250px] mb-6" />
-        <div className="bg-gray-200 w-[300px] h-[250px]" />
+        <div className="bg-gray-200 w-full aspect-[6/5] mb-6 animate-pulse" />
+        <div className="bg-gray-200 w-full aspect-[6/5] animate-pulse" />
       </div>
     )
   }
@@ -58,7 +58,7 @@ export default function SidebarBanner() {
               alt={banner.altText}
               width={300}
               height={250}
-              className="w-[300px] h-[250px] object-cover"
+              className="w-full aspect-[6/5] object-cover"
             />
           </a>
         </div>
