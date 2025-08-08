@@ -11,7 +11,7 @@ export default function Header() {
   
   return (
     <header 
-      className={`fixed top-[2rem] right-0 z-[60] navbar transition-all duration-200 ease-linear ${
+      className={`fixed top-[3rem] right-0 z-[60] navbar transition-all duration-200 ease-linear ${
         isMobile 
           ? "left-0" // Full width on mobile
           : state === "collapsed" 
@@ -26,8 +26,8 @@ export default function Header() {
           <Image 
             src="/stackcess-icon-wb-logo.png" 
             alt="Stackcess Logo" 
-            width={16}
-            height={16}
+            width={24}
+            height={24}
             className="h-4 w-auto block md:hidden"
           />
           

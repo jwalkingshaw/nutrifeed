@@ -6,7 +6,7 @@ import { Twitter, Instagram, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 w-screen -ml-4 md:-ml-0 md:pl-[calc(var(--sidebar-width)+1rem)] md:peer-data-[state=collapsed]:pl-[calc(var(--sidebar-width-icon)+1rem)] pl-4 pr-4 transition-[padding] duration-200 ease-linear">
+    <footer className="bg-black text-white py-12 w-screen -ml-4 -mr-4 md:-ml-0 md:-mr-0 md:pl-[calc(var(--sidebar-width)+1rem)] md:peer-data-[state=collapsed]:pl-[calc(var(--sidebar-width-icon)+1rem)] pl-4 pr-4 transition-[padding] duration-200 ease-linear">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Column */}

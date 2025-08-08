@@ -87,7 +87,7 @@ export function AppSidebar() {
           </button>
         </div>
         
-        <div className="pt-16">
+        <div className="pt-20">
           <SidebarHeader>
             <div className="flex items-center gap-2">
               {/* No header text needed */}
@@ -139,9 +139,9 @@ export function AppSidebar() {
 
   return (
     <Sidebar collapsible="icon">
-      {/* Desktop trigger positioned under announcement bar */}
+      {/* Desktop trigger positioned to align with header center */}
       {!isMobile && (
-        <div className="absolute top-1 left-2 z-10">
+        <div className="absolute top-5.5 left-2 z-10">
           <button
             onClick={toggleSidebar}
             className="p-2 text-black hover:text-gray-500 transition-colors"
@@ -152,7 +152,7 @@ export function AppSidebar() {
         </div>
       )}
       
-      <div className={isMobile ? "pt-20" : "pt-8"}> {/* Add extra padding for mobile header */}
+      <div className={isMobile ? "pt-24" : "pt-14"}> {/* Add extra padding for mobile header and menu trigger */}
         <SidebarHeader>
           <div className="flex items-center gap-2">
             {/* No header text needed */}

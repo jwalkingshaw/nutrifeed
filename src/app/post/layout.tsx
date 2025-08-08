@@ -34,7 +34,7 @@ export default function PostLayout({
             </main>
             
             {/* Right sidebar - minimum width to fit banners */}
-            <aside className="w-[300px] md:w-[320px] flex-shrink-0 bg-gray-50 rounded-lg p-4 md:p-5 lg:p-6 h-fit sticky top-20">
+            <aside className="w-[300px] md:w-[320px] flex-shrink-0 bg-gray-50 rounded-lg p-4 md:p-5 lg:p-6 h-fit sticky top-[7rem]">
               <h3 className="font-bold text-base lg:text-lg mb-4">Related Articles</h3>
               <div className="space-y-3">
                 <div className="text-xs md:text-sm">Article 1</div>
