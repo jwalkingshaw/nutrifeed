@@ -61,7 +61,7 @@ export default function MarketingLandingPage() {
                 </button>
               </div>
               {isSubmitted && (
-                <p className="mt-4 text-gray-800 font-medium text-center">Thanks! We'll be in touch soon.</p>
+                <p className="mt-4 text-gray-800 font-medium text-center">Thanks! We&apos;ll be in touch soon.</p>
               )}
             </form>
           </div>
@@ -219,7 +219,7 @@ export default function MarketingLandingPage() {
               STACKCESS is coming soon. Want early access and updates?
             </h2>
             <p className="text-xl text-gray-300 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
-              We'll notify you when it's ready. No spam — just product updates and launch details.
+              We&apos;ll notify you when it&apos;s ready. No spam — just product updates and launch details.
             </p>
             
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
@@ -240,7 +240,7 @@ export default function MarketingLandingPage() {
                 </button>
               </div>
               {isSubmitted && (
-                <p className="mt-4 text-white font-medium">Thanks! We'll be in touch soon.</p>
+                <p className="mt-4 text-white font-medium">Thanks! We&apos;ll be in touch soon.</p>
               )}
             </form>
           </div>

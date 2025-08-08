@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Clock, Heart, MessageCircle, Share2 } from 'lucide-react'
 import { BlogPost, urlFor } from '@/lib/sanity'
 
 interface BlogPostCardProps {

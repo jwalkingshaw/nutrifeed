@@ -4,6 +4,7 @@ import { Menu } from 'lucide-react'
 import { useSidebar } from './ui/sidebar'
 import { Button } from './ui/button'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const { state, isMobile, setOpenMobile, openMobile } = useSidebar()
@@ -22,16 +23,20 @@ export default function Header() {
         {/* Left: Logo */}
         <div className="flex items-center">
           {/* Mobile Logo - hidden on md screens and up */}
-          <img 
+          <Image 
             src="/stackcess-icon-wb-logo.png" 
             alt="Stackcess Logo" 
+            width={16}
+            height={16}
             className="h-4 w-auto block md:hidden"
           />
           
           {/* Desktop Logo - hidden on screens smaller than md */}
-          <img 
+          <Image 
             src="/stackcess-word-logo.svg" 
             alt="Stackcess Logo" 
+            width={120}
+            height={24}
             className="h-6 w-auto hidden md:block"
           />
         </div>

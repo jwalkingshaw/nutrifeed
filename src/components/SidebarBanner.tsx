@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { getActiveBanners, trackBannerClick, urlFor, type Banner } from '@/lib/sanity'
 
 export default function SidebarBanner() {
@@ -52,9 +53,11 @@ export default function SidebarBanner() {
             onClick={() => handleBannerClick(banner)}
             className="block rounded-lg shadow-lg overflow-hidden"
           >
-            <img
+            <Image
               src={urlFor(banner.desktopImage).width(300).height(250).url()}
               alt={banner.altText}
+              width={300}
+              height={250}
               className="w-[300px] h-[250px] object-cover"
             />
           </a>
