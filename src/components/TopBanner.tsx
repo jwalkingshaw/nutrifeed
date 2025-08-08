@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { getBannerByPlacement, trackBannerClick, urlFor, type Banner } from '@/lib/sanity'
 
 export default function TopBanner() {
@@ -54,18 +55,22 @@ export default function TopBanner() {
       >
         {/* Desktop Banner */}
         <div className="hidden md:block">
-          <img
+          <Image
             src={urlFor(banner.desktopImage).width(728).height(90).url()}
             alt={banner.altText}
+            width={728}
+            height={90}
             className="w-[728px] h-[90px] object-cover"
           />
         </div>
         
         {/* Mobile Banner */}
         <div className="block md:hidden">
-          <img
+          <Image
             src={urlFor(banner.mobileImage || banner.desktopImage).width(320).height(50).url()}
             alt={banner.altText}
+            width={320}
+            height={50}
             className="w-[320px] h-[50px] object-cover"
           />
         </div>

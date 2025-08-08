@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Twitter, Facebook, Instagram, Linkedin, Github } from 'lucide-react'
 
 export default function Footer() {
@@ -10,9 +11,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Column */}
           <div className="col-span-1">
-            <img 
+            <Image 
               src="/stackcess-full-logo-white.svg" 
               alt="Stackcess Logo" 
+              width={200}
+              height={56}
               className="h-14 w-auto mb-4"
             />
           </div>
