@@ -5,89 +5,91 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import BlogPostCard from './BlogPostCard'
 import { BlogPost, client } from '@/lib/sanity'
 import { Loader2 } from 'lucide-react'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from '@/components/ui/pagination'
 
 const POSTS_PER_PAGE = 6
 
 export default function NewsFeed() {
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
-  const [loadingMore, setLoadingMore] = useState(false)
-  const [hasMore, setHasMore] = useState(true)
+  const [totalPosts, setTotalPosts] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
 
   const router = useRouter()
   const searchParams = useSearchParams()
 
 
-  const fetchPosts = useCallback(async (page: number, isLoadMore = false) => {
-    if (isLoadMore) {
-      setLoadingMore(true)
-    } else {
-      setLoading(true)
-    }
+  const fetchPosts = useCallback(async (page: number) => {
+    setLoading(true)
 
     try {
       const offset = (page - 1) * POSTS_PER_PAGE
-      const query = `
-        *[_type == "blogPost"] | order(publishedAt desc) [${offset}...${offset + POSTS_PER_PAGE}] {
-          _id,
-          title,
-          slug,
-          excerpt,
-          coverImage {
-            asset->{
-              _id,
-              url
-            },
-            alt
-          },
-          author-> {
-            name,
-            image {
+      
+      // Get total count and posts in parallel
+      const [postsResult, countResult] = await Promise.all([
+        client.fetch(`
+          *[_type == "blogPost"] | order(publishedAt desc) [${offset}...${offset + POSTS_PER_PAGE}] {
+            _id,
+            title,
+            slug,
+            excerpt,
+            coverImage {
               asset->{
-                _ref
+                _id,
+                url
+              },
+              alt
+            },
+            author-> {
+              name,
+              image {
+                asset->{
+                  _ref
+                }
               }
-            }
-          },
-          publishedAt,
-          tags,
-          estimatedReadingTime
-        }
-      `
+            },
+            publishedAt,
+            tags,
+            estimatedReadingTime
+          }
+        `),
+        client.fetch(`count(*[_type == "blogPost"])`)
+      ])
 
-      const newPosts = await client.fetch(query)
-      setPosts(prev => isLoadMore ? [...prev, ...newPosts] : newPosts)
-      setHasMore(newPosts.length === POSTS_PER_PAGE)
+      setPosts(postsResult)
+      setTotalPosts(countResult)
     } catch (error) {
       console.error('Error fetching posts:', error)
-      // Set empty state on error
-      if (!isLoadMore) {
-        setPosts([])
-      }
-      setHasMore(false)
+      setPosts([])
+      setTotalPosts(0)
     } finally {
       setLoading(false)
-      setLoadingMore(false)
     }
   }, [])
 
-  const loadMore = () => {
-    if (!loadingMore && hasMore) {
-      const nextPage = currentPage + 1
-      setCurrentPage(nextPage)
-      const params = new URLSearchParams(searchParams.toString())
-      params.set('page', nextPage.toString())
-      router.push(`?${params.toString()}`, { scroll: false })
-      fetchPosts(nextPage, true)
-    }
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('page', page.toString())
+    router.push(`?${params.toString()}`, { scroll: false })
+    fetchPosts(page)
   }
 
   useEffect(() => {
     const pageParam = searchParams.get('page')
     const initialPage = pageParam ? parseInt(pageParam) : 1
     setCurrentPage(initialPage)
-    fetchPosts(initialPage, false)
+    fetchPosts(initialPage)
   }, [searchParams, fetchPosts])
+
+  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
 
   if (loading) {
     return (
@@ -105,31 +107,51 @@ export default function NewsFeed() {
         ))}
       </div>
 
-      {hasMore && (
-        <div className="flex justify-center mt-12">
-          <button
-            onClick={loadMore}
-            disabled={loadingMore}
-            className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 flex items-center space-x-2"
-          >
-            {loadingMore ? (
-              <>
-                <Loader2 className="h-5 w-5 animate-spin" />
-                <span>Loading...</span>
-              </>
-            ) : (
-              <span>Load More Posts</span>
-            )}
-          </button>
+      {totalPages > 1 && (
+        <div className="mt-12">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    if (currentPage > 1) handlePageChange(currentPage - 1)
+                  }}
+                  className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+              
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <PaginationItem key={page}>
+                  <PaginationLink
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      handlePageChange(page)
+                    }}
+                    isActive={currentPage === page}
+                  >
+                    {page}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
+              
+              <PaginationItem>
+                <PaginationNext 
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    if (currentPage < totalPages) handlePageChange(currentPage + 1)
+                  }}
+                  className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </div>
       )}
 
-      {!hasMore && posts.length > 0 && (
-        <div className="text-center py-8 text-gray-500">
-          <p className="text-lg">You&apos;ve reached the end!</p>
-          <p className="text-sm mt-2">Thanks for reading all our latest posts</p>
-        </div>
-      )}
     </>
   )
 }

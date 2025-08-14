@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next"
 import { Geist, Geist_Mono, Inter, Merriweather, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/schema";
@@ -124,6 +124,7 @@ export default function RootLayout({
             </div>
           </SidebarProvider>
         </div>
+        <Analytics />
       </body>
     </html>
   );

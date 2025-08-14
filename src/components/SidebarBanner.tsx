@@ -29,17 +29,8 @@ export default function SidebarBanner() {
     }
   }
 
-  if (loading) {
-    return (
-      <div>
-        <div className="bg-gray-200 w-full aspect-[6/5] mb-6 animate-pulse" />
-        <div className="bg-gray-200 w-full aspect-[6/5] animate-pulse" />
-      </div>
-    )
-  }
-
-  if (banners.length === 0) {
-    return null // Don't show anything if no banners are configured
+  if (loading || banners.length === 0) {
+    return null // Don't show anything while loading or if no banners are configured
   }
 
   return (
