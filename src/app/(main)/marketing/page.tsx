@@ -78,7 +78,7 @@ export default function MarketingLandingPage() {
                 Join 500+ supplement brands • Free during beta
               </p>
               {isSubmitted && (
-                <p className="mt-4 text-black font-medium text-center text-sm">Success! We'll notify you when STACKCESS launches.</p>
+                <p className="mt-4 text-black font-medium text-center text-sm">Success! We&apos;ll notify you when STACKCESS launches.</p>
               )}
             </form>
           </div>
@@ -105,7 +105,7 @@ export default function MarketingLandingPage() {
                   </div>
                   <div className="flex items-start space-x-4">
                     <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-700">Hours spent responding to "send me the latest assets" emails</p>
+                    <p className="text-gray-700">Hours spent responding to &quot;send me the latest assets&quot; emails</p>
                   </div>
                   <div className="flex items-start space-x-4">
                     <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
@@ -118,7 +118,7 @@ export default function MarketingLandingPage() {
                 </div>
                 <div className="border-l-2 border-gray-200 pl-6">
                   <p className="text-gray-800 font-medium text-lg mb-2">
-                    "We spent more time managing assets than marketing our products."
+                    &quot;We spent more time managing assets than marketing our products.&quot;
                   </p>
                   <p className="text-gray-500 text-sm">— Marketing Director, Top 10 Supplement Brand</p>
                 </div>
@@ -154,7 +154,7 @@ export default function MarketingLandingPage() {
                 </div>
                 <div className="border-l-2 border-blue-600 pl-6">
                   <p className="text-gray-800 font-medium text-lg mb-2">
-                    "STACKCESS cut our asset management time by 80% and increased retailer engagement."
+                    &quot;STACKCESS cut our asset management time by 80% and increased retailer engagement.&quot;
                   </p>
                   <p className="text-gray-500 text-sm">— Brand Manager, Beta Customer</p>
                 </div>
@@ -171,7 +171,7 @@ export default function MarketingLandingPage() {
                 Two sides. One platform.<br /><span className="font-medium">Endless</span> possibilities.
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-                Whether you're a brand looking to scale or a retailer seeking efficiency, STACKCESS connects your ecosystem.
+                Whether you&apos;re a brand looking to scale or a retailer seeking efficiency, STACKCESS connects your ecosystem.
               </p>
             </div>
 
@@ -229,7 +229,7 @@ export default function MarketingLandingPage() {
                 <div className="mt-12 pt-8 border-t border-gray-100">
                   <div className="border-l-2 border-blue-600 pl-4">
                     <p className="text-gray-800 font-medium text-sm mb-1">
-                      "We reduced asset request emails by 95% and launched 3x faster."
+                      &quot;We reduced asset request emails by 95% and launched 3x faster.&quot;
                     </p>
                     <p className="text-gray-500 text-xs">— CMO, Premium Supplements Co.</p>
                   </div>
@@ -289,7 +289,7 @@ export default function MarketingLandingPage() {
                 <div className="mt-12 pt-8 border-t border-gray-700">
                   <div className="border-l-2 border-orange-400 pl-4">
                     <p className="text-white font-medium text-sm mb-1">
-                      "Finally! One place to find fresh content from all our supplement partners."
+                      &quot;Finally! One place to find fresh content from all our supplement partners.&quot;
                     </p>
                     <p className="text-gray-400 text-xs">— Marketing Manager, National Nutrition Chain</p>
                   </div>
@@ -332,7 +332,7 @@ export default function MarketingLandingPage() {
               <div className="text-center">
                 <div className="text-6xl font-light text-black mb-4">95<span className="text-blue-600">%</span></div>
                 <div className="text-lg font-medium text-black mb-3">Fewer Requests</div>
-                <p className="text-gray-600 text-sm font-light">Eliminate 95% of "send me the assets" emails with self-service access.</p>
+                <p className="text-gray-600 text-sm font-light">Eliminate 95% of &quot;send me the assets&quot; emails with self-service access.</p>
               </div>
             </div>
 
@@ -413,7 +413,7 @@ export default function MarketingLandingPage() {
             <div className="grid md:grid-cols-3 gap-12 mb-20">
               <div className="bg-white border border-gray-200 p-8">
                 <p className="text-gray-700 mb-8 font-light italic leading-relaxed">
-                  "STACKCESS eliminated our asset bottlenecks. Our retailers now have instant access to everything they need, and our launch times have improved dramatically."
+                  &quot;STACKCESS eliminated our asset bottlenecks. Our retailers now have instant access to everything they need, and our launch times have improved dramatically.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mr-3">
@@ -428,7 +428,7 @@ export default function MarketingLandingPage() {
               
               <div className="bg-white border border-gray-200 p-8">
                 <p className="text-gray-700 mb-8 font-light italic leading-relaxed">
-                  "As a distributor working with 20+ supplement brands, STACKCESS has been a game-changer. One login, all the assets I need, always up-to-date."
+                  &quot;As a distributor working with 20+ supplement brands, STACKCESS has been a game-changer. One login, all the assets I need, always up-to-date.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mr-3">
@@ -443,7 +443,7 @@ export default function MarketingLandingPage() {
               
               <div className="bg-white border border-gray-200 p-8">
                 <p className="text-gray-700 mb-8 font-light italic leading-relaxed">
-                  "The time we save on asset management now goes into strategy and growth. STACKCESS has streamlined our entire brand-retailer relationship."
+                  &quot;The time we save on asset management now goes into strategy and growth. STACKCESS has streamlined our entire brand-retailer relationship.&quot;
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center mr-3">
@@ -508,7 +508,7 @@ export default function MarketingLandingPage() {
                 </button>
               </div>
               {isSubmitted && (
-                <p className="mt-4 text-white font-medium text-sm">Success! We'll send you exclusive updates and beta access details.</p>
+                <p className="mt-4 text-white font-medium text-sm">Success! We&apos;ll send you exclusive updates and beta access details.</p>
               )}
             </form>
             

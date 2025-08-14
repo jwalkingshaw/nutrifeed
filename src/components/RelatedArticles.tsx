@@ -87,7 +87,7 @@ export default function RelatedArticles({ currentSlug, tags }: RelatedArticlesPr
       </h3>
       
       <div className="space-y-4">
-        {articles.map((article, index) => {
+        {articles.map((article) => {
           const getImageUrl = () => {
             if (!article.coverImage) return null
             
