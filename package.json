@@ -26,6 +26,7 @@
     "@supabase/supabase-js": "^2.52.0",
     "@tanstack/react-query": "^5.83.0",
     "@vercel/analytics": "^1.5.0",
+    "@vercel/kv": "^3.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
@@ -35,6 +36,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-is": "^19.1.0",
+    "redis": "^5.8.1",
     "sanity": "^4.1.1",
     "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.1"

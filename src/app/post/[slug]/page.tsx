@@ -6,6 +6,9 @@ import { Calendar, ChevronRight, Home } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
 import { BlogPost, getPostBySlug, urlFor } from '@/lib/sanity'
 import { generateNewsArticleSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import ViewTracker from '@/components/ViewTracker'
+import RelatedArticles from '@/components/RelatedArticles'
+import TopArticles from '@/components/TopArticles'
 
 interface PostPageProps {
   params: Promise<{ slug: string }>
@@ -96,6 +99,9 @@ export default async function PostPage({ params }: PostPageProps) {
           __html: JSON.stringify(breadcrumbSchema),
         }}
       />
+      
+      {/* Track page view */}
+      <ViewTracker slug={post.slug.current} />
       
       <>
         {/* Breadcrumb */}
@@ -201,6 +207,21 @@ export default async function PostPage({ params }: PostPageProps) {
             />
           </div>
         </article>
+
+        {/* Related Articles Section */}
+        {post.tags && post.tags.length > 0 && (
+          <div className="mt-12">
+            <RelatedArticles 
+              currentSlug={post.slug.current} 
+              tags={post.tags} 
+            />
+          </div>
+        )}
+
+        {/* Most Popular Articles Section */}
+        <div className="mt-12">
+          <TopArticles />
+        </div>
       </>
     </>
   )

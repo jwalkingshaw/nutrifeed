@@ -4,53 +4,59 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { BlogPost, urlFor } from '@/lib/sanity'
-import { Eye, TrendingUp } from 'lucide-react'
+import { BookOpen, Hash } from 'lucide-react'
 
-interface PopularArticle extends BlogPost {
+interface RelatedArticle extends BlogPost {
   views: number
 }
 
-interface PopularArticlesResponse {
-  articles: PopularArticle[]
+interface RelatedArticlesResponse {
+  articles: RelatedArticle[]
   lastUpdated: string
-  fallback?: boolean
 }
 
-export default function TopArticles() {
-  const [articles, setArticles] = useState<PopularArticle[]>([])
+interface RelatedArticlesProps {
+  currentSlug: string
+  tags: string[]
+}
+
+export default function RelatedArticles({ currentSlug, tags }: RelatedArticlesProps) {
+  const [articles, setArticles] = useState<RelatedArticle[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [isFallback, setIsFallback] = useState(false)
 
   useEffect(() => {
-    async function fetchPopularArticles() {
+    async function fetchRelatedArticles() {
       try {
-        const response = await fetch('/api/popular-articles')
+        const response = await fetch(`/api/related-articles?slug=${currentSlug}&tags=${tags.join(',')}`)
         
         if (!response.ok) {
-          throw new Error('Failed to fetch popular articles')
+          throw new Error('Failed to fetch related articles')
         }
 
-        const data: PopularArticlesResponse = await response.json()
+        const data: RelatedArticlesResponse = await response.json()
         setArticles(data.articles)
-        setIsFallback(data.fallback || false)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred')
-        console.error('Error fetching popular articles:', err)
+        console.error('Error fetching related articles:', err)
       } finally {
         setLoading(false)
       }
     }
 
-    fetchPopularArticles()
-  }, [])
+    if (tags.length > 0) {
+      fetchRelatedArticles()
+    } else {
+      setLoading(false)
+    }
+  }, [currentSlug, tags])
 
   if (loading) {
     return (
       <div className="bg-gray-50 rounded-lg p-4 md:p-6">
         <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-          <TrendingUp size={20} />
-          Most Popular
+          <BookOpen size={20} />
+          Related Articles
         </h3>
         <div className="space-y-4">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -69,30 +75,15 @@ export default function TopArticles() {
     )
   }
 
-  if (error) {
-    return (
-      <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-        <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-          <TrendingUp size={20} />
-          Most Popular
-        </h3>
-        <div className="text-sm text-gray-500">
-          Unable to load popular articles right now.
-        </div>
-      </div>
-    )
+  if (error || articles.length === 0) {
+    return null // Don't show the component if there are no related articles
   }
 
   return (
     <div className="bg-gray-50 rounded-lg p-4 md:p-6">
       <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-        <TrendingUp size={20} />
-        Most Popular
-        {isFallback && (
-          <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded">
-            Recent
-          </span>
-        )}
+        <BookOpen size={20} />
+        Related Articles
       </h3>
       
       <div className="space-y-4">
@@ -138,20 +129,26 @@ export default function TopArticles() {
                   </h4>
                   
                   <div className="flex items-center gap-2 text-xs text-gray-500">
-                    <span className="flex items-center gap-1">
-                      <span className="font-medium text-blue-600">#{index + 1}</span>
-                    </span>
-                    
-                    {article.views > 0 && (
-                      <span className="flex items-center gap-1">
-                        <Eye size={10} />
-                        {article.views.toLocaleString()}
+                    {/* Show shared tags */}
+                    <div className="flex items-center gap-1">
+                      <Hash size={10} />
+                      <span className="font-medium text-blue-600">
+                        {article.tags?.filter(tag => tags.includes(tag)).join(', ')}
                       </span>
-                    )}
+                    </div>
+                    
+                    <span>•</span>
                     
                     <span>
                       {new Date(article.publishedAt).toLocaleDateString()}
                     </span>
+                    
+                    {article.views > 0 && (
+                      <>
+                        <span>•</span>
+                        <span>{article.views.toLocaleString()} views</span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -159,7 +156,6 @@ export default function TopArticles() {
           )
         })}
       </div>
-      
     </div>
   )
 }
