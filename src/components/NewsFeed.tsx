@@ -47,13 +47,9 @@ export default function NewsFeed() {
               },
               alt
             },
-            author-> {
+            author->{
               name,
-              image {
-                asset->{
-                  _ref
-                }
-              }
+              image
             },
             publishedAt,
             tags,
@@ -63,10 +59,12 @@ export default function NewsFeed() {
         client.fetch(`count(*[_type == "blogPost"])`)
       ])
 
-      setPosts(postsResult)
-      setTotalPosts(countResult)
+      setPosts(postsResult || [])
+      setTotalPosts(countResult || 0)
     } catch (error) {
       console.error('Error fetching posts:', error)
+      // Show user-friendly error message
+      console.error('Failed to connect to Sanity. Please check your Sanity configuration.')
       setPosts([])
       setTotalPosts(0)
     } finally {

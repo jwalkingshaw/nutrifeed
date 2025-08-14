@@ -130,44 +130,49 @@ export interface Banner {
 }
 
 export async function getActiveBanners(placement?: 'top' | 'sidebar'): Promise<Banner[]> {
-  const now = new Date().toISOString()
-  const placementFilter = placement ? ` && placement == "${placement}"` : ''
-  
-  return client.fetch(`
-    *[_type == "banner" 
-      && isActive == true 
-      && startDate <= "${now}" 
-      && endDate >= "${now}"
-      ${placementFilter}
-    ] | order(priority desc) {
-      _id,
-      campaignName,
-      placement,
-      desktopImage {
-        asset->{
-          _id,
-          url
+  try {
+    const now = new Date().toISOString()
+    const placementFilter = placement ? ` && placement == "${placement}"` : ''
+    
+    return await client.fetch(`
+      *[_type == "banner" 
+        && isActive == true 
+        && startDate <= "${now}" 
+        && endDate >= "${now}"
+        ${placementFilter}
+      ] | order(priority desc) {
+        _id,
+        campaignName,
+        placement,
+        desktopImage {
+          asset->{
+            _id,
+            url
+          },
+          alt
         },
-        alt
-      },
-      mobileImage {
-        asset->{
-          _id,
-          url
+        mobileImage {
+          asset->{
+            _id,
+            url
+          },
+          alt
         },
-        alt
-      },
-      altText,
-      clickThroughUrl,
-      targetBlank,
-      startDate,
-      endDate,
-      isActive,
-      priority,
-      clickTracking,
-      notes
-    }
-  `)
+        altText,
+        clickThroughUrl,
+        targetBlank,
+        startDate,
+        endDate,
+        isActive,
+        priority,
+        clickTracking,
+        notes
+      }
+    `)
+  } catch (error) {
+    console.error('Error fetching banners:', error)
+    return [] // Return empty array if there's an error
+  }
 }
 
 export async function getBannerByPlacement(placement: 'top' | 'sidebar'): Promise<Banner | null> {
