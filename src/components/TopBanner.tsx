@@ -29,19 +29,8 @@ export default function TopBanner() {
     }
   }
 
-  if (loading) {
-    return (
-      <div className="w-full mb-8 flex justify-center">
-        <div className="bg-gray-200 animate-pulse">
-          <div className="hidden md:block w-[728px] h-[90px]" />
-          <div className="block md:hidden w-[320px] h-[50px]" />
-        </div>
-      </div>
-    )
-  }
-
-  if (!banner) {
-    return null // Don't show anything if no banner is configured
+  if (loading || !banner) {
+    return null // Don't show anything while loading or if no banner is configured
   }
 
   return (

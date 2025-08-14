@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Calendar, ChevronRight, Home } from 'lucide-react'
 import { PortableText } from '@portabletext/react'
-import { BlogPost, getPostBySlug } from '@/lib/sanity'
+import { BlogPost, getPostBySlug, urlFor } from '@/lib/sanity'
 import { generateNewsArticleSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 interface PostPageProps {
@@ -155,15 +155,18 @@ export default async function PostPage({ params }: PostPageProps) {
               value={post.content}
               components={{
                 types: {
-                  image: ({ value }) => (
-                    <Image
-                      src={value.asset.url}
-                      alt={value.alt || ''}
-                      width={800}
-                      height={400}
-                      className="rounded-lg my-8 w-full h-auto object-cover"
-                    />
-                  ),
+                  image: ({ value }) => {
+                    const imageUrl = value.asset?.url || urlFor(value).width(800).height(400).url()
+                    return (
+                      <Image
+                        src={imageUrl}
+                        alt={value.alt || ''}
+                        width={800}
+                        height={400}
+                        className="rounded-lg my-8 w-full h-auto object-cover"
+                      />
+                    )
+                  },
                   code: ({ value }) => (
                     <pre className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-4 rounded-md overflow-x-auto my-6 text-sm font-mono">
                       <code>{value.code}</code>
@@ -183,13 +186,15 @@ export default async function PostPage({ params }: PostPageProps) {
                   h1: ({ children }) => <h1 className="font-inter font-bold text-3xl mt-8 mb-4">{children}</h1>,
                   h2: ({ children }) => <h2 className="font-inter font-bold text-2xl mt-6 mb-3">{children}</h2>,
                   h3: ({ children }) => <h3 className="font-inter font-bold text-xl mt-5 mb-2">{children}</h3>,
-                  bullet: ({ children }) => <ul className="list-disc list-outside ml-6 pl-2 my-6 space-y-3 font-inter text-gray-700 leading-loose">{children}</ul>,
-                  number: ({ children }) => <ol className="list-decimal list-outside ml-6 pl-2 my-6 space-y-3 font-inter text-gray-700 leading-loose">{children}</ol>,
                   blockquote: ({ children }) => (
                     <blockquote className="border-l-4 border-blue-500 pl-4 py-2 my-6 italic text-gray-600 font-inter">
                       {children}
                     </blockquote>
                   ),
+                },
+                list: {
+                  bullet: ({ children }) => <ul className="list-disc list-outside ml-6 pl-2 my-6 space-y-2 font-inter text-gray-700 leading-loose">{children}</ul>,
+                  number: ({ children }) => <ol className="list-decimal list-outside ml-6 pl-2 my-6 space-y-2 font-inter text-gray-700 leading-loose">{children}</ol>,
                 },
                 listItem: ({ children }) => <li className="font-inter leading-loose">{children}</li>,
               }}

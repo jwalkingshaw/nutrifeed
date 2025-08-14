@@ -3,6 +3,7 @@
 import { Menu } from 'lucide-react'
 import { useSidebar } from './ui/sidebar'
 import { Button } from './ui/button'
+import SignUpButton from './SignUpButton'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -41,8 +42,11 @@ export default function Header() {
           />
         </div>
 
-        {/* Right: Get Started Button + Mobile menu trigger */}
+        {/* Right: Sign Up + Get Started Buttons + Mobile menu trigger */}
         <div className="flex items-center gap-3">
+          {/* Sign Up Button - always visible */}
+          <SignUpButton />
+          
           {/* Get Started Button - always visible */}
           <Link href="/marketing">
             <Button 
