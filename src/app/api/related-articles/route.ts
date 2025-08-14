@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { client } from '@/lib/sanity'
+import { client, type BlogPost } from '@/lib/sanity'
 import { connectRedis } from '@/lib/redis'
 
 export async function GET(request: NextRequest) {
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     // Connect to Redis and get view counts for each post
     const redis = await connectRedis()
     const postsWithViews = await Promise.all(
-      relatedPosts.map(async (post: unknown) => {
+      relatedPosts.map(async (post: BlogPost) => {
         const viewKey = `views:${post.slug.current}`
         const views = await redis.get(viewKey) || 0
         
