@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { client } from '@/lib/sanity'
 import { connectRedis } from '@/lib/redis'
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // Get all blog posts from Sanity first
     const allPostsQuery = `
@@ -26,7 +26,7 @@ export async function GET(request: NextRequest) {
     // Connect to Redis and get view counts for each post
     const redis = await connectRedis()
     const postsWithViews = await Promise.all(
-      allPosts.map(async (post: any) => {
+      allPosts.map(async (post: unknown) => {
         const viewKey = `views:${post.slug.current}`
         const views = await redis.get(viewKey) || 0
         return {
@@ -74,11 +74,11 @@ export async function GET(request: NextRequest) {
       const fallbackPosts = await client.fetch(fallbackQuery)
       
       return NextResponse.json({
-        articles: fallbackPosts.map((post: any) => ({ ...post, views: 0 })),
+        articles: fallbackPosts.map((post: unknown) => ({ ...post, views: 0 })),
         lastUpdated: new Date().toISOString(),
         fallback: true
       })
-    } catch (fallbackError) {
+    } catch {
       return NextResponse.json(
         { error: 'Failed to fetch popular articles' },
         { status: 500 }

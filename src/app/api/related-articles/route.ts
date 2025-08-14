@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     // Connect to Redis and get view counts for each post
     const redis = await connectRedis()
     const postsWithViews = await Promise.all(
-      relatedPosts.map(async (post: any) => {
+      relatedPosts.map(async (post: unknown) => {
         const viewKey = `views:${post.slug.current}`
         const views = await redis.get(viewKey) || 0
         
@@ -84,7 +84,7 @@ export async function GET(request: NextRequest) {
       .slice(0, 5) // Get top 5
     
     // Remove the tagMatchCount field before returning
-    const articles = sortedPosts.map(({ tagMatchCount, ...post }) => post)
+    const articles = sortedPosts.map(({ ...post }) => post)
 
     return NextResponse.json({
       articles,
