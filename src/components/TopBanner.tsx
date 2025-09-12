@@ -34,36 +34,38 @@ export default function TopBanner() {
   }
 
   return (
-    <div className="w-full mb-8 flex justify-center">
-      <a
-        href={banner.clickThroughUrl}
-        target={banner.targetBlank ? '_blank' : '_self'}
-        rel={banner.targetBlank ? 'noopener noreferrer' : undefined}
-        onClick={handleBannerClick}
-        className="block overflow-hidden"
-      >
-        {/* Desktop Banner */}
-        <div className="hidden md:block">
-          <Image
-            src={urlFor(banner.desktopImage).width(728).height(90).url()}
-            alt={banner.altText}
-            width={728}
-            height={90}
-            className="w-[728px] h-[90px] object-cover"
-          />
-        </div>
-        
-        {/* Mobile Banner */}
-        <div className="block md:hidden">
-          <Image
-            src={urlFor(banner.mobileImage || banner.desktopImage).width(320).height(50).url()}
-            alt={banner.altText}
-            width={320}
-            height={50}
-            className="w-[320px] h-[50px] object-cover"
-          />
-        </div>
-      </a>
+    <div className="w-full mb-12 flex justify-center px-6">
+      <div className="max-w-4xl w-full">
+        <a
+          href={banner.clickThroughUrl}
+          target={banner.targetBlank ? '_blank' : '_self'}
+          rel={banner.targetBlank ? 'noopener noreferrer' : undefined}
+          onClick={handleBannerClick}
+          className="block overflow-hidden rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
+        >
+          {/* Desktop Banner */}
+          <div className="hidden md:block">
+            <Image
+              src={urlFor(banner.desktopImage).width(800).height(100).url()}
+              alt={banner.altText}
+              width={800}
+              height={100}
+              className="w-full h-[100px] object-cover"
+            />
+          </div>
+          
+          {/* Mobile Banner */}
+          <div className="block md:hidden">
+            <Image
+              src={urlFor(banner.mobileImage || banner.desktopImage).width(400).height(60).url()}
+              alt={banner.altText}
+              width={400}
+              height={60}
+              className="w-full h-[60px] object-cover"
+            />
+          </div>
+        </a>
+      </div>
     </div>
   )
 }

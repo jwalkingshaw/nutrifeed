@@ -27,11 +27,26 @@ export async function GET() {
     const redis = await connectRedis()
     const postsWithViews = await Promise.all(
       allPosts.map(async (post: BlogPost) => {
-        const viewKey = `views:${post.slug.current}`
-        const views = await redis.get(viewKey) || 0
-        return {
-          ...post,
-          views: Number(views)
+        if (!redis) {
+          return {
+            ...post,
+            views: 0
+          }
+        }
+        
+        try {
+          const viewKey = `views:${post.slug.current}`
+          const views = await redis.get(viewKey) || 0
+          return {
+            ...post,
+            views: Number(views)
+          }
+        } catch (error) {
+          console.error(`Failed to get views for ${post.slug.current}:`, error)
+          return {
+            ...post,
+            views: 0
+          }
         }
       })
     )

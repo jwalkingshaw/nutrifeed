@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next"
-import { Geist, Geist_Mono, Inter, Merriweather, IBM_Plex_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/schema";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import Header from "@/components/Header";
-import AnnouncementBar from "@/components/AnnouncementBar";
+import MarketingLayoutWrapper from "@/components/MarketingLayoutWrapper";
 import Footer from "@/components/Footer";
-import MainContentWrapper from "@/components/MainContentWrapper";
+import { FloatingHaveYourSayButton } from "@/components/FloatingHaveYourSayButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,12 +22,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const merriweather = Merriweather({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-  variable: '--font-merriweather',
-});
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
@@ -40,12 +31,12 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Stackset - Modern News & Technology Blog",
-  description: "Stay updated with the latest in technology, science, and innovation. A modern news feed style blog with seamless mobile and web experience.",
-  keywords: ["news", "technology", "science", "innovation", "blog", "articles"],
-  authors: [{ name: "Stackset Team" }],
-  creator: "Stackset",
-  publisher: "Stackset",
+  title: "Stackcess - Sports Supplements Operating System",
+  description: "The unified platform connecting supplement brands, distributors, and retailers. Manage products, assets, compliance, and partnerships in one place. Join the waitlist for early access.",
+  keywords: ["sports supplements", "supplement brands", "product management", "compliance tracking", "partner collaboration", "asset management", "supplement industry", "distributors", "retailers"],
+  authors: [{ name: "Stackcess Team" }],
+  creator: "Stackcess",
+  publisher: "Stackcess",
   robots: {
     index: true,
     follow: true,
@@ -59,22 +50,22 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    siteName: 'Stackset',
-    title: 'Stackset - Modern News & Technology Blog',
-    description: 'Stay updated with the latest in technology, science, and innovation.',
+    siteName: 'Stackcess',
+    title: 'Stackcess - Sports Supplements Operating System',
+    description: 'The unified platform connecting supplement brands, distributors, and retailers. Manage products, assets, compliance, and partnerships in one place.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Stackset - Modern News Blog',
+        alt: 'Stackcess - Sports Supplements Operating System',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Stackset - Modern News & Technology Blog',
-    description: 'Stay updated with the latest in technology, science, and innovation.',
+    title: 'Stackcess - Sports Supplements Operating System',
+    description: 'The unified platform connecting supplement brands, distributors, and retailers. Manage products, assets, compliance, and partnerships in one place.',
     images: ['/og-image.jpg'],
   },
 };
@@ -90,10 +81,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/stackcess-icon-wb-logo.png" />
+        <link rel="icon" href="/stackcess-favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/stackcess-icon-wb-logo.png" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${merriweather.variable} ${ibmPlexMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased bg-[#0a0a0a]`}
       >
         <script
           type="application/ld+json"
@@ -107,23 +99,15 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-        <div className="min-h-screen">
-          <AnnouncementBar />
-          <SidebarProvider defaultOpen={false}>
-            <Header />
-            <div className="flex pt-[7rem] min-h-[calc(100vh-7rem)] flex-col">
-              <div className="relative">
-                <AppSidebar />
-                <MainContentWrapper>
-                  {children}
-                </MainContentWrapper>
-              </div>
-              <div className="w-full">
-                <Footer />
-              </div>
-            </div>
-          </SidebarProvider>
-        </div>
+        <MarketingLayoutWrapper>
+          <div className="flex-1">
+            {children}
+          </div>
+          <div className="w-full">
+            <Footer />
+          </div>
+          <FloatingHaveYourSayButton />
+        </MarketingLayoutWrapper>
         <Analytics />
       </body>
     </html>

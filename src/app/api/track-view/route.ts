@@ -15,19 +15,40 @@ export async function POST(request: NextRequest) {
     // Connect to Redis
     const redis = await connectRedis()
     
-    // Increment view count for this post
-    const viewKey = `views:${slug}`
-    const newCount = await redis.incr(viewKey)
+    if (!redis) {
+      // If Redis is not available, just return success without tracking
+      return NextResponse.json({ 
+        success: true, 
+        views: 1, // Default view count
+        slug,
+        cached: false 
+      })
+    }
     
-    // Also track when it was last viewed
-    const lastViewedKey = `last_viewed:${slug}`
-    await redis.set(lastViewedKey, new Date().toISOString())
+    try {
+      // Increment view count for this post
+      const viewKey = `views:${slug}`
+      const newCount = await redis.incr(viewKey)
+      
+      // Also track when it was last viewed
+      const lastViewedKey = `last_viewed:${slug}`
+      await redis.set(lastViewedKey, new Date().toISOString())
 
-    return NextResponse.json({ 
-      success: true, 
-      views: newCount,
-      slug 
-    })
+      return NextResponse.json({ 
+        success: true, 
+        views: newCount,
+        slug 
+      })
+    } catch (error) {
+      console.error('Redis operation failed:', error)
+      // Continue without caching if Redis fails
+      return NextResponse.json({ 
+        success: true, 
+        views: 1,
+        slug,
+        cached: false 
+      })
+    }
 
   } catch (error) {
     console.error('Error tracking view:', error)

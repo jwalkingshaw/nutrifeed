@@ -10,8 +10,8 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   const pathname = usePathname()
-  const showTopArticles = pathname !== '/marketing'
-  const isMarketingPage = pathname === '/marketing'
+  const showTopArticles = pathname !== '/marketing' && pathname !== '/' && pathname !== '/pricing' && pathname !== '/roadmap' && pathname !== '/about' && pathname !== '/terms' && pathname !== '/privacy'
+  const isMarketingPage = pathname === '/marketing' || pathname === '/' || pathname === '/pricing' || pathname === '/roadmap'
   return (
     <div className="w-full min-h-screen">
       {/* Mobile layout */}

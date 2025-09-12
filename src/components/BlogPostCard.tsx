@@ -30,47 +30,76 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
 
   return (
-    <article className="overflow-hidden">
+    <article className="group bg-white border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-gray-200/50 hover:border-gray-200">
       {imageUrl && (
-  <div className="relative h-48 sm:h-64 overflow-hidden group rounded-md">
-    <Link href={`/post/${post.slug.current}`}>
-      <Image
-        src={imageUrl}
-        alt={post.coverImage.alt || post.title}
-        fill
-        className="object-cover transition-transform duration-300"
-      />
-      {/* Overlay div */}
-      <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-2 transition-opacity duration-300 pointer-events-none"></div>
-    </Link>
-  </div>
-)}
-      
-      <div className="p-4 sm:p-6">
-        <div className="flex items-center space-x-2 mb-3">
-          {post.tags && post.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-blue-50 text-blue-600 text-xs font-medium rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
+        <div className="relative h-48 sm:h-64 overflow-hidden">
+          <Link href={`/post/${post.slug.current}`}>
+            <Image
+              src={imageUrl}
+              alt={post.coverImage.alt || post.title}
+              fill
+              className="object-cover"
+            />
+          </Link>
         </div>
+      )}
+      
+      <div className="p-6">
+        {/* Enhanced tags */}
+        {post.tags && post.tags.length > 0 && (
+          <div className="flex items-center space-x-2 mb-4">
+            {post.tags.slice(0, 2).map((tag) => (
+              <span
+                key={tag}
+                className="px-3 py-1.5 bg-blue-50 text-blue-600 text-xs font-medium rounded-lg border border-blue-100"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
 
-        <Link href={`/post/${post.slug.current}`}>
-          <h2 className="text-3xl sm:text-2xl md:text-3xl font-[700] font-inter text-gray-900 hover:text-[oklch(0.6048 0.216559 257.2136)] transition-colors duration-200 mb-3 line-clamp-3 cursor-pointer">
+        <Link href={`/post/${post.slug.current}`} className="block">
+          <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 line-clamp-2 leading-tight">
             {post.title}
           </h2>
-        </Link>  
-      
+        </Link>
+        
+        {/* Enhanced excerpt if available */}
+        {post.excerpt && (
+          <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-2">
+            {post.excerpt}
+          </p>
+        )}
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 text-xs text-gray-500">
-            <time>{new Date(post.publishedAt).toLocaleDateString()}</time>           
+        <div className="flex items-center justify-between pt-4 border-t border-gray-50">
+          <div className="flex items-center space-x-3">
+            {post.author?.image && (
+              <div className="w-6 h-6 rounded-full overflow-hidden">
+                <Image
+                  src={post.author.image}
+                  alt={post.author.name}
+                  width={24}
+                  height={24}
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="flex items-center space-x-2 text-xs text-gray-500">
+              {post.author && (
+                <span className="font-medium">{post.author.name}</span>
+              )}
+              <span>•</span>
+              <time>{new Date(post.publishedAt).toLocaleDateString()}</time>
+              {post.estimatedReadingTime && (
+                <>
+                  <span>•</span>
+                  <span>{post.estimatedReadingTime} min read</span>
+                </>
+              )}
+            </div>
           </div>
         </div>
-
       </div>
     </article>
   )

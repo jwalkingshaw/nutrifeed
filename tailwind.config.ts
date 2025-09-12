@@ -1,46 +1,45 @@
 import type { Config } from "tailwindcss";
+import { tailwindConfig } from "@tradetool/design-tokens";
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "../../packages/ui/src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        'inter': ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        'merriweather': ['var(--font-merriweather)', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif'],
-        'geist-sans': ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        'geist-mono': ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        'ibm-plex-mono': ['var(--font-ibm-plex-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-      },
-   
+      ...tailwindConfig,
+      // Marketing-specific typography overrides
       typography: {
         DEFAULT: {
           css: {
             p: {
-              fontFamily: 'var(--font-inter), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
-              color: '#374151',
+              fontFamily: 'var(--font-family-sans)',
+              color: 'var(--color-foreground-secondary)',
               lineHeight: '1.75',
             },
             article: {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
             },
             h1: {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
+              color: 'var(--color-foreground)',
             },
             h2: {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
+              color: 'var(--color-foreground)',
             },
             h3: {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
+              color: 'var(--color-foreground)',
             },
             'ul > li': {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
             },
             'ol > li': {
-              fontFamily: 'var(--font-inter), ui-sans-serif, system-ui, sans-serif',
+              fontFamily: 'var(--font-family-sans)',
             }
           }
         }
@@ -49,6 +48,15 @@ const config: Config = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+  ],
+  safelist: [
+    // Keep arbitrary values that might not be detected
+    'top-[3rem]',
+    'h-[67px]',
+    'pt-[8rem]',
+    'z-[75]',
+    'z-[60]',
+    'z-[9999]',
   ],
 };
 

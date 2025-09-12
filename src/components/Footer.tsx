@@ -2,36 +2,35 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Twitter, Instagram, Linkedin } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white py-12 w-screen -ml-4 -mr-4 md:-ml-0 md:-mr-0 md:pl-[calc(var(--sidebar-width)+1rem)] md:peer-data-[state=collapsed]:pl-[calc(var(--sidebar-width-icon)+1rem)] pl-4 pr-4 transition-[padding] duration-200 ease-linear">
+    <footer className="bg-black text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo Column */}
-          <div className="col-span-1">
+          <div className="col-span-1 flex items-start">
             <Image 
               src="/stackcess-full-logo-white.svg" 
               alt="Stackcess Logo" 
               width={200}
               height={56}
-              className="h-14 w-auto mb-4"
+              className="h-14 w-auto"
             />
           </div>
 
           {/* Links Column */}
           <div className="col-span-1">
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <div className="text-[15px] font-bold !text-white mb-8 font-inter leading-none">Company</div>
             <ul className="space-y-3">
               <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white transition-colors duration-200">
-                  Contact
+                <Link href="/roadmap" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                  Roadmap
                 </Link>
               </li>
             </ul>
@@ -39,15 +38,15 @@ export default function Footer() {
 
           {/* Terms Column */}
           <div className="col-span-1">
-            <h3 className="font-semibold text-lg mb-4">Legal</h3>
+            <div className="text-[15px] font-bold !text-white mb-8 font-inter leading-none">Legal</div>
             <ul className="space-y-3">
               <li>
-                <Link href="/terms" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition-colors duration-200">
+                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
                   Privacy Policy
                 </Link>
               </li>
@@ -56,28 +55,26 @@ export default function Footer() {
 
           {/* Social Media Column */}
           <div className="col-span-1">
-            <h3 className="font-semibold text-lg mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Twitter size={24} />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Instagram size={24} />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                <Linkedin size={24} />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
-            </div>
+            <div className="text-[15px] font-bold !text-white mb-8 font-inter leading-none">Connect</div>
+            <ul className="space-y-3">
+              <li>
+                <a href="mailto:hello@stackcess.com" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                  hello@stackcess.com
+                </a>
+              </li>
+              <li>
+                <a href="https://x.com/stackcessapp" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200 text-sm">
+                  X (Twitter)
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Bottom Border */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Stackess. All rights reserved.
+        <div className="border-t border-gray-700 mt-16 pt-10 text-center">
+          <p className="text-white/70 text-base font-medium leading-relaxed">
+            © {new Date().getFullYear()} Stackcess. All rights reserved.
           </p>
         </div>
       </div>

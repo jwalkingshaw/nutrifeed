@@ -91,24 +91,39 @@ export default function NewsFeed() {
 
   if (loading) {
     return (
-      <div className="flex justify-center py-12">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="flex flex-col items-center justify-center py-16">
+          <Loader2 className="h-8 w-8 animate-spin text-primary mb-4" />
+          <p className="text-gray-500 text-sm">Loading latest articles...</p>
+        </div>
       </div>
     )
   }
 
   return (
-    <>
-      <div className="space-y-6">
+    <div className="max-w-4xl mx-auto px-6 pb-16">
+      {/* Enhanced section header */}
+      <div className="mb-12">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          Latest Articles
+        </h1>
+        <p className="text-lg text-gray-600 leading-relaxed">
+          Stay updated with the latest insights in technology, innovation, and industry trends.
+        </p>
+      </div>
+      
+      {/* Enhanced grid layout */}
+      <div className="grid gap-8 md:gap-10">
         {posts.map((post) => (
           <BlogPostCard key={post._id} post={post} />
         ))}
       </div>
 
+      {/* Enhanced pagination */}
       {totalPages > 1 && (
-        <div className="mt-12">
+        <div className="mt-16 border-t border-gray-100 pt-12">
           <Pagination>
-            <PaginationContent>
+            <PaginationContent className="gap-2">
               <PaginationItem>
                 <PaginationPrevious 
                   href="#"
@@ -116,7 +131,11 @@ export default function NewsFeed() {
                     e.preventDefault()
                     if (currentPage > 1) handlePageChange(currentPage - 1)
                   }}
-                  className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
+                  className={`${
+                    currentPage <= 1 
+                      ? 'pointer-events-none opacity-40' 
+                      : 'hover:bg-gray-50 hover:text-gray-900'
+                  } transition-all duration-200`}
                 />
               </PaginationItem>
               
@@ -129,6 +148,7 @@ export default function NewsFeed() {
                       handlePageChange(page)
                     }}
                     isActive={currentPage === page}
+                    className="transition-all duration-200 hover:bg-gray-50"
                   >
                     {page}
                   </PaginationLink>
@@ -142,14 +162,17 @@ export default function NewsFeed() {
                     e.preventDefault()
                     if (currentPage < totalPages) handlePageChange(currentPage + 1)
                   }}
-                  className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
+                  className={`${
+                    currentPage >= totalPages 
+                      ? 'pointer-events-none opacity-40' 
+                      : 'hover:bg-gray-50 hover:text-gray-900'
+                  } transition-all duration-200`}
                 />
               </PaginationItem>
             </PaginationContent>
           </Pagination>
         </div>
       )}
-
-    </>
+    </div>
   )
 }
