@@ -1,6 +1,6 @@
 'use client'
 
-import { MarketingLayoutShell } from "@tradetool/ui"
+import { MarketingLayoutShell } from "./ui/MarketingLayoutShell"
 import { ReactNode } from "react"
 import AnnouncementBar from "./AnnouncementBar"
 

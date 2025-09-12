@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Button } from '@tradetool/ui'
+import { Button } from '../ui/button'
 import { Loader2, Mail, Check } from 'lucide-react'
 
 interface EmailSignupProps {
