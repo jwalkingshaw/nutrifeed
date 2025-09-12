@@ -2,12 +2,29 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { Resend } from 'resend'
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-)
+// Initialize clients only when environment variables are available
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase configuration missing')
+    return null
+  }
+  
+  return createClient(supabaseUrl, supabaseKey)
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY!)
+function getResendClient() {
+  const resendKey = process.env.RESEND_API_KEY
+  
+  if (!resendKey) {
+    console.warn('Resend API key missing')
+    return null
+  }
+  
+  return new Resend(resendKey)
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,6 +43,17 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid email format' },
         { status: 400 }
+      )
+    }
+
+    // Get clients
+    const supabase = getSupabaseClient()
+    const resend = getResendClient()
+
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Newsletter service temporarily unavailable' },
+        { status: 503 }
       )
     }
 
@@ -73,14 +101,18 @@ export async function POST(request: NextRequest) {
 
     // Send welcome email based on source
     try {
-      let emailTemplate = {
-        to: email,
-        from: 'hello@tradetool.com',
-        subject: 'Welcome to TradeTools!',
-        html: getWelcomeEmailHtml(source)
-      }
+      if (resend) {
+        let emailTemplate = {
+          to: email,
+          from: 'hello@tradetool.com',
+          subject: 'Welcome to TradeTools!',
+          html: getWelcomeEmailHtml(source)
+        }
 
-      await resend.emails.send(emailTemplate)
+        await resend.emails.send(emailTemplate)
+      } else {
+        console.warn('Email service not configured, skipping welcome email')
+      }
     } catch (emailError) {
       console.error('Email sending error:', emailError)
       // Don't fail the whole request if email fails
