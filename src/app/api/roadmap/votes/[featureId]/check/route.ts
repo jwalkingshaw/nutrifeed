@@ -1,16 +1,31 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase configuration missing')
+    return null
+  }
+  
+  return createClient(supabaseUrl, supabaseKey)
+}
 
 export async function POST(
   request: NextRequest,
   { params }: { params: Promise<{ featureId: string }> }
 ) {
   try {
+    const supabase = getSupabaseClient()
+    
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      )
+    }
     const resolvedParams = await params;
     const { featureId } = resolvedParams;
     const body = await request.json();

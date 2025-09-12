@@ -1,13 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY
+  
+  if (!supabaseUrl || !supabaseKey) {
+    console.warn('Supabase configuration missing')
+    return null
+  }
+  
+  return createClient(supabaseUrl, supabaseKey)
+}
 
 export async function GET() {
   try {
+    const supabase = getSupabaseClient()
+    
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      )
+    }
+
     // Fetch approved feature requests, sorted by vote count descending
     const { data: featureRequests, error } = await supabase
       .from('feature_requests')
@@ -35,6 +51,15 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const supabase = getSupabaseClient()
+    
+    if (!supabase) {
+      return NextResponse.json(
+        { error: 'Service temporarily unavailable' },
+        { status: 503 }
+      )
+    }
+
     const body = await request.json();
     const { name, email, title, description, marketingOptIn } = body;
 
