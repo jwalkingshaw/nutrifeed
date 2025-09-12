@@ -49,15 +49,6 @@ const config: Config = {
   plugins: [
     require('@tailwindcss/typography'),
   ],
-  safelist: [
-    // Keep arbitrary values that might not be detected
-    'top-[3rem]',
-    'h-[67px]',
-    'pt-[8rem]',
-    'z-[75]',
-    'z-[60]',
-    'z-[9999]',
-  ],
 };
 
 export default config;

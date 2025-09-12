@@ -5,7 +5,6 @@ const redis = process.env.REDIS_URL ? createClient({
   url: process.env.REDIS_URL,
   socket: {
     connectTimeout: 5000,
-    lazyConnect: true,
   }
 }) : null
 

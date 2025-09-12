@@ -26,8 +26,7 @@ export default function MarketingLayoutWrapper({ children }: MarketingLayoutWrap
       headerProps={{
         logoHref: "/",
         onLogin: handleLogin,
-        onRegister: handleRegister,
-        showNavigation: true
+        onRegister: handleRegister
       }}
     >
       {children}

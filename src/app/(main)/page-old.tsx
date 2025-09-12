@@ -32,7 +32,7 @@ export default function Home() {
               </div>
               
               <SplitText className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white mb-8 tracking-tight leading-[1.1]" delay={0.1}>
-                Your supplement stack.<br />Organized, shared, scaled.
+                Your supplement stack. Organized, shared, scaled.
               </SplitText>
               
               <div className="max-w-2xl mx-auto mb-12">

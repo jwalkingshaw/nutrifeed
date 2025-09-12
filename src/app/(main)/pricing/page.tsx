@@ -202,7 +202,7 @@ export default function PricingPage() {
                         postLoginRedirectURL="http://localhost:3001/onboarding"
                         authUrlParams={{
                           connection_id: plan.id,
-                          billing_plan: billingPeriod === 'yearly' ? plan.yearlyPrice : plan.monthlyPrice,
+                          billing_plan: billingPeriod === 'yearly' ? plan.yearlyPrice.toString() : plan.monthlyPrice.toString(),
                           billing_period: billingPeriod
                         }}
                       >

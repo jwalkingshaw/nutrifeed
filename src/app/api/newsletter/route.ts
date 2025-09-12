@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
           metadata: {
             ...metadata,
             user_agent: request.headers.get('user-agent'),
-            ip: request.ip || 'unknown',
+            ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
             timestamp: new Date().toISOString()
           }
         }

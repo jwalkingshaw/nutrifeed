@@ -74,17 +74,6 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
 
         <div className="flex items-center justify-between pt-4 border-t border-gray-50">
           <div className="flex items-center space-x-3">
-            {post.author?.image && (
-              <div className="w-6 h-6 rounded-full overflow-hidden">
-                <Image
-                  src={post.author.image}
-                  alt={post.author.name}
-                  width={24}
-                  height={24}
-                  className="object-cover"
-                />
-              </div>
-            )}
             <div className="flex items-center space-x-2 text-xs text-gray-500">
               {post.author && (
                 <span className="font-medium">{post.author.name}</span>

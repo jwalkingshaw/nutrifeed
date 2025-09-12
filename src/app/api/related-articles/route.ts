@@ -52,7 +52,7 @@ export async function GET(request: NextRequest) {
     const postsWithViews = await Promise.all(
       relatedPosts.map(async (post: BlogPost) => {
         const viewKey = `views:${post.slug.current}`
-        const views = await redis.get(viewKey) || 0
+        const views = redis ? await redis.get(viewKey) || 0 : 0
         
         // Calculate how many tags match
         const matchingTags = post.tags?.filter((tag: string) => tags.includes(tag)) || []
