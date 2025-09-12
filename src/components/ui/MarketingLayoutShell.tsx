@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from "react"
-import { UnifiedHeader } from "@tradetool/ui"
+import { UnifiedHeader } from "../UnifiedHeader"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -42,8 +42,6 @@ export function MarketingLayoutShell({
         logoHref={headerProps?.logoHref}
         onLogin={headerProps?.onLogin}
         onRegister={headerProps?.onRegister}
-        LinkComponent={Link}
-        ImageComponent={Image}
       >
         {/* Navigation items for mobile menu could go here */}
       </UnifiedHeader>
