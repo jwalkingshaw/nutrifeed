@@ -42,19 +42,21 @@ export function UnifiedHeader({
           {/* Left side: Logo */}
           <div className="flex items-center">
             <Link href={logoHref} className="flex items-center space-x-2">
+              {/* Mobile: Show just icon */}
               <Image 
-                src="/stackcess-icon-wb-logo.svg" 
+                src="/stackcess-icon-white-logo.svg" 
                 alt="Stackcess" 
                 width={24}
                 height={24}
-                className="h-6 w-6 flex-shrink-0"
+                className="h-6 w-6 flex-shrink-0 sm:hidden"
               />
+              {/* Desktop: Show full logo */}
               <Image 
-                src="/stackcess-word-logo.svg" 
+                src="/stackcess-full-logo-white.svg" 
                 alt="Stackcess" 
-                width={80}
-                height={16}
-                className="h-4 w-auto hidden sm:block flex-shrink-0"
+                width={120}
+                height={24}
+                className="h-6 w-auto hidden sm:block flex-shrink-0"
               />
             </Link>
           </div>

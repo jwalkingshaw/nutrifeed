@@ -58,14 +58,9 @@ export function MarketingLayoutShell({
             <div className="col-span-1">
               <div className="flex items-center space-x-2">
                 <img 
-                  src="/stackcess-icon-wb-logo.svg" 
+                  src="/stackcess-full-logo-white.svg" 
                   alt="Stackcess" 
-                  className="h-8 w-8"
-                />
-                <img 
-                  src="/stackcess-word-logo.svg" 
-                  alt="Stackcess" 
-                  className="h-6 w-auto"
+                  className="h-8 w-auto"
                 />
               </div>
               <p className="mt-4 text-white/60 text-sm">

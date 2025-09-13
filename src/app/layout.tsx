@@ -82,7 +82,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/stackcess-favicon.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/stackcess-icon-wb-logo.png" />
+        <link rel="alternate icon" href="/stackcess-favicon.svg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased bg-[#0a0a0a]`}
