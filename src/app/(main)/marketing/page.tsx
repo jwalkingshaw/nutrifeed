@@ -27,23 +27,23 @@ export default function MarketingLandingPage() {
         }}
       />
       
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#0a0a0a] pt-[67px]">
         {/* Hero Section */}
-        <section className="relative px-6 py-24 sm:py-32 lg:py-40 bg-white">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-20">
-              <div className="inline-block px-3 py-1 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-full mb-8">
+            <div className="text-center mb-12 sm:mb-20">
+              <div className="inline-block px-3 py-1 text-xs font-medium text-blue-400 bg-[#0a0a0a]/5 border border-white/10 backdrop-blur-sm rounded-full mb-6 sm:mb-8">
                 Built for Sports Supplement Brands
               </div>
               
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-black mb-8 tracking-tight leading-[0.9]">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium !text-[#f7f8f8] mb-6 sm:mb-8 tracking-[-0.02em] leading-[1.05]">
                 Stop chasing assets.<br />
                 <span className="font-medium">Start scaling</span><br />
-                <span className="text-blue-600 font-medium">your brand.</span>
+                <span className="text-white font-medium">your brand.</span>
               </h1>
               
-              <div className="max-w-3xl mx-auto mb-12">
-                <p className="text-xl sm:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
+              <div className="max-w-3xl mx-auto mb-8 sm:mb-12">
+                <p className="text-lg sm:text-xl md:text-2xl !text-[#8a8f98] mb-6 sm:mb-8 leading-[1.4] px-4 sm:px-0">
                   The Digital Asset Management platform that connects sports supplement brands with their global retail network—instantly.
                 </p>
                 
