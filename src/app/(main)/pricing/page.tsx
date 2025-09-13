@@ -98,35 +98,35 @@ export default function PricingPage() {
         }}
       />
       
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-[#0a0a0a] pt-[67px]">
         {/* Hero Section */}
-        <section className="relative px-6 py-24 sm:py-32 lg:py-40 bg-white">
-          <div className="mx-auto max-w-6xl text-center">
-            <div className="mb-8">
-              <span className="inline-block px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 border border-gray-200 rounded-full">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="mb-6 sm:mb-8">
+              <span className="inline-block px-3 py-1 text-xs font-medium text-blue-400 bg-[#0a0a0a]/5 border border-white/10 backdrop-blur-sm rounded-full">
                 Simple, transparent pricing
               </span>
             </div>
             
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light text-black mb-8 tracking-tight leading-[0.9]">
-              Choose the plan that<br />
-              <span className="font-medium">scales</span> with your<br />
-              <span className="text-primary font-medium">growth</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium !text-[#f7f8f8] mb-6 sm:mb-8 tracking-[-0.02em] leading-[1.05]">
+              Choose the plan that<br className="hidden sm:block" />
+              <span className="font-medium">scales</span> with your<br className="hidden sm:block" />
+              <span className="text-white font-medium">growth</span>
             </h1>
             
-            <p className="text-xl text-gray-600 mb-12 font-light max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl !text-[#8a8f98] mb-8 sm:mb-12 max-w-3xl mx-auto leading-[1.4] px-4 sm:px-0">
               Start free, upgrade when you need more. All plans include core DAM features to connect your brand with retailers.
             </p>
 
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center mb-16">
-              <div className="bg-gray-100 p-1 rounded-lg border border-gray-200">
+            <div className="flex items-center justify-center mb-12 sm:mb-16">
+              <div className="bg-[#0a0a0a]/5 border border-white/10 backdrop-blur-sm p-1 rounded-lg">
                 <button
                   onClick={() => setBillingPeriod('monthly')}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 ${
                     billingPeriod === 'monthly'
-                      ? 'bg-white text-gray-900 shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'bg-white text-black shadow-sm'
+                      : '!text-[#8a8f98] hover:!text-[#f7f8f8]'
                   }`}
                 >
                   Monthly
@@ -135,12 +135,12 @@ export default function PricingPage() {
                   onClick={() => setBillingPeriod('yearly')}
                   className={`px-4 py-2 text-sm font-medium rounded-md transition-all duration-200 relative ${
                     billingPeriod === 'yearly'
-                      ? 'bg-white text-gray-900 shadow-sm'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'bg-white text-black shadow-sm'
+                      : '!text-[#8a8f98] hover:!text-[#f7f8f8]'
                   }`}
                 >
                   Yearly
-                  <span className="absolute -top-2 -right-2 bg-primary text-white text-xs px-1.5 py-0.5 rounded-full">
+                  <span className="absolute -top-2 -right-2 bg-white text-black text-xs px-1.5 py-0.5 rounded-full">
                     20% off
                   </span>
                 </button>
