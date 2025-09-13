@@ -81,8 +81,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/stackcess-favicon.svg" type="image/svg+xml" />
-        <link rel="alternate icon" href="/stackcess-favicon.svg" />
+        {/* Favicon handled automatically by Next.js from app/favicon.ico and app/icon.svg */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${ibmPlexMono.variable} antialiased bg-[#0a0a0a]`}
