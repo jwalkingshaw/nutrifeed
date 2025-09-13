@@ -259,18 +259,18 @@ export default function PricingPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-32 px-6 bg-gray-50">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="mx-auto max-w-4xl">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-light text-black mb-6 leading-tight">
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium !text-[#f7f8f8] mb-6 sm:mb-8 tracking-[-0.02em] leading-[1.1]">
                 Frequently asked <span className="font-medium">questions</span>
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg sm:text-xl !text-[#8a8f98] max-w-3xl mx-auto leading-[1.4] px-4 sm:px-0">
                 Everything you need to know about STACKCESS pricing and features.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {[
                 {
                   question: "Can I switch plans at any time?",
@@ -297,9 +297,9 @@ export default function PricingPage() {
                   answer: "No setup fees for any plan. Enterprise customers receive complimentary onboarding and training sessions."
                 }
               ].map((faq, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-sm transition-shadow duration-200">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <div key={index} className="bg-[#0a0a0a]/5 border border-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 hover:border-white/20 transition-all duration-200">
+                  <h3 className="text-lg sm:text-xl font-medium !text-[#f7f8f8] mb-3 sm:mb-4">{faq.question}</h3>
+                  <p className="!text-[#8a8f98] leading-[1.4] text-sm sm:text-base">{faq.answer}</p>
                 </div>
               ))}
             </div>
@@ -307,17 +307,17 @@ export default function PricingPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-32 px-6 bg-black">
+        <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl sm:text-5xl font-light text-white mb-6 tracking-tight leading-tight">
-              Ready to streamline your<br />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium !text-[#f7f8f8] mb-6 sm:mb-8 tracking-[-0.02em] leading-[1.1]">
+              Ready to streamline your<br className="hidden sm:block" />
               <span className="font-medium">asset management?</span>
             </h2>
-            <p className="text-xl text-gray-300 mb-8 font-light max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl !text-[#8a8f98] mb-6 sm:mb-8 leading-[1.4] max-w-2xl mx-auto px-4 sm:px-0">
               Join hundreds of supplement brands already using STACKCESS to connect with their retailers.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <RegisterLink 
                 postLoginRedirectURL="http://localhost:3001/onboarding"
                 authUrlParams={{
@@ -326,19 +326,19 @@ export default function PricingPage() {
                   billing_period: "monthly"
                 }}
               >
-                <button className="px-8 py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+                <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white !text-black font-medium rounded-lg hover:bg-white/90 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto">
                   Start Free Trial
                 </button>
               </RegisterLink>
               <a 
                 href="mailto:sales@stackcess.com?subject=Demo Request&body=I'd like to schedule a demo of STACKCESS."
-                className="px-8 py-4 bg-white text-gray-900 rounded-lg font-medium hover:bg-gray-100 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 text-center"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-[#0a0a0a]/5 border border-white/10 !text-[#f7f8f8] rounded-lg font-medium hover:bg-[#0a0a0a]/10 hover:border-white/20 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 text-center w-full sm:w-auto"
               >
                 Schedule Demo
               </a>
             </div>
             
-            <div className="flex items-center justify-center gap-8 mt-8 text-gray-400 text-sm">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mt-6 sm:mt-8 !text-[#8a8f98] text-sm">
               <span>✓ No credit card required</span>
               <span>✓ 14-day free trial</span>
               <span>✓ Cancel anytime</span>

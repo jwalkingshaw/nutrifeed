@@ -9,7 +9,7 @@ export async function GET() {
 }`);
 
 
-  const staticPages = ['', '/about', '/contact'];
+  const staticPages = ['', '/about', '/contact', '/industry-news', '/marketing', '/pricing', '/privacy', '/roadmap', '/terms'];
 
   const urls = [
     ...staticPages.map((path) => ({
