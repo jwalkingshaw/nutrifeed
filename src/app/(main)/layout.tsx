@@ -11,7 +11,7 @@ export default function MainLayout({
 }) {
   const pathname = usePathname()
   const showTopArticles = pathname !== '/marketing' && pathname !== '/' && pathname !== '/pricing' && pathname !== '/roadmap' && pathname !== '/about' && pathname !== '/terms' && pathname !== '/privacy'
-  const isMarketingPage = pathname === '/marketing' || pathname === '/' || pathname === '/pricing' || pathname === '/roadmap'
+  const isMarketingPage = pathname === '/marketing' || pathname === '/' || pathname === '/pricing' || pathname === '/roadmap' || pathname === '/about' || pathname === '/terms' || pathname === '/privacy'
   return (
     <div className="w-full min-h-screen">
       {/* Mobile layout */}
