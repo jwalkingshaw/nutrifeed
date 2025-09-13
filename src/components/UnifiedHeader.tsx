@@ -2,14 +2,13 @@
 
 import React, { useState, useEffect } from 'react'
 import { ReactNode } from 'react'
-import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 interface UnifiedHeaderProps {
   variant: 'marketing'
   isAuthenticated?: boolean
-  user?: any
+  user?: unknown
   logoHref?: string
   onLogin?: () => void
   onRegister?: () => void
@@ -17,7 +16,6 @@ interface UnifiedHeaderProps {
 }
 
 export function UnifiedHeader({
-  variant,
   logoHref = "/",
   children
 }: UnifiedHeaderProps) {

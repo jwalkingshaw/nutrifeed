@@ -7,7 +7,6 @@ import { RegisterLink } from "@kinde-oss/kinde-auth-nextjs/components"
 
 export default function PricingPage() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('monthly')
-  const [selectedPlan, setSelectedPlan] = useState<string | null>(null)
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: process.env.NEXT_PUBLIC_SITE_URL || 'https://stackcess.com' },

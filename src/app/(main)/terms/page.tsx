@@ -11,7 +11,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-medium text-black mb-4">1. Acceptance of Terms</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              By accessing or using the Stackcess platform and services ("Service"), you agree to be bound by these Terms and Conditions ("Terms"). 
+              By accessing or using the Stackcess platform and services (&quot;Service&quot;), you agree to be bound by these Terms and Conditions (&quot;Terms&quot;). 
               If you do not agree to all the terms and conditions of this agreement, then you may not access the Service or use any services.
             </p>
           </section>
@@ -40,7 +40,7 @@ export default function TermsPage() {
               <li>Violate any applicable laws or regulations</li>
               <li>Infringe upon the intellectual property rights of others</li>
               <li>Transmit harmful, threatening, abusive, or harassing content</li>
-              <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
+              <li>Attempt to gain unauthorized access to our systems or other users&apos; accounts</li>
               <li>Use the Service for any illegal or unauthorized purpose</li>
             </ul>
           </section>

@@ -1,7 +1,6 @@
 'use client'
 
 import { generateBreadcrumbSchema } from '@/lib/schema'
-import IndustryNewsPreview from '@/components/IndustryNewsPreview'
 import SplitText from '@/components/SplitText'
 import { EmailSignup } from '@/components/forms'
 import Link from 'next/link'
@@ -178,7 +177,7 @@ export default function Home() {
               Help us build the platform<br className="hidden sm:block" />your stack deserves
             </h2>
             <p className="text-lg sm:text-xl !text-[#f7f8f8]/60 mb-6 sm:mb-8 leading-[1.4] px-4 sm:px-0">
-              We're building Stackcess with the sports supplement community. 
+              We&apos;re building Stackcess with the sports supplement community. 
               Your input shapes every feature we develop.
             </p>
             
@@ -202,7 +201,7 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-lg sm:text-xl !text-[#8a8f98] mb-4 sm:mb-6 leading-[1.4]">
-                  Stackcess connects brands, distributors, and retailers through a unified platform designed for the supplement industry's unique needs.
+                  Stackcess connects brands, distributors, and retailers through a unified platform designed for the supplement industry&apos;s unique needs.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 text-sm">
                   <Link href="/roadmap" className="!text-[#8a8f98] hover:!text-[#f7f8f8] transition-colors">

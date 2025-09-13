@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
     // Send welcome email based on source
     try {
       if (resend) {
-        let emailTemplate = {
+        const emailTemplate = {
           to: email,
           from: 'hello@tradetool.com',
           subject: 'Welcome to TradeTools!',

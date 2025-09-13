@@ -63,7 +63,7 @@ export function FeatureSubmissionForm({ onFeatureSubmitted }: FeatureSubmissionF
         const errorData = await response.json();
         setError(errorData.message || "Failed to submit feature request");
       }
-    } catch (error) {
+    } catch {
       setError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -80,7 +80,7 @@ export function FeatureSubmissionForm({ onFeatureSubmitted }: FeatureSubmissionF
         </div>
         <h3 className="text-lg font-medium text-gray-900 mb-2">Feature Request Submitted!</h3>
         <p className="text-gray-600">
-          Thank you for your suggestion. We'll review it and add it to the community voting once approved.
+          Thank you for your suggestion. We&apos;ll review it and add it to the community voting once approved.
         </p>
       </div>
     );

@@ -82,7 +82,7 @@ export function EmailSignup({
           message: data.error || 'Something went wrong'
         })
       }
-    } catch (error) {
+    } catch {
       setState({
         status: 'error',
         message: 'Network error. Please try again.'

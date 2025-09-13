@@ -8,7 +8,7 @@ export default function AboutPage() {
             About Stackcess
           </h1>
           <p className="text-lg sm:text-xl !text-[#8a8f98] max-w-3xl mx-auto leading-[1.4] px-4 sm:px-0">
-            We're building the unified operating system for the sports supplement industry, connecting brands, distributors, and retailers in one seamless platform.
+            We&apos;re building the unified operating system for the sports supplement industry, connecting brands, distributors, and retailers in one seamless platform.
           </p>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function AboutPage() {
             Join the movement
           </h2>
           <p className="text-lg sm:text-xl !text-[#8a8f98] mb-6 sm:mb-8 leading-[1.4] px-4 sm:px-0">
-            We're building Stackcess with the community. Your input shapes our roadmap.
+            We&apos;re building Stackcess with the community. Your input shapes our roadmap.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <a 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 interface VotingButtonProps {
   featureId: string;
@@ -13,16 +13,7 @@ export function VotingButton({ featureId, voteCount, onVoteUpdate }: VotingButto
   const [isVoting, setIsVoting] = useState(false);
   const [currentVoteCount, setCurrentVoteCount] = useState(voteCount);
 
-  useEffect(() => {
-    // Check if user has already voted for this feature
-    checkVoteStatus();
-  }, [featureId]);
-
-  useEffect(() => {
-    setCurrentVoteCount(voteCount);
-  }, [voteCount]);
-
-  const checkVoteStatus = async () => {
+  const checkVoteStatus = useCallback(async () => {
     try {
       const response = await fetch(`/api/roadmap/votes/${featureId}/check`, {
         method: 'POST',
@@ -41,7 +32,16 @@ export function VotingButton({ featureId, voteCount, onVoteUpdate }: VotingButto
     } catch (error) {
       console.error('Failed to check vote status:', error);
     }
-  };
+  }, [featureId]);
+
+  useEffect(() => {
+    // Check if user has already voted for this feature
+    checkVoteStatus();
+  }, [featureId, checkVoteStatus]);
+
+  useEffect(() => {
+    setCurrentVoteCount(voteCount);
+  }, [voteCount]);
 
   const getVoterIdentifier = () => {
     // Use a combination of browser fingerprinting for anonymous voting
@@ -70,7 +70,7 @@ export function VotingButton({ featureId, voteCount, onVoteUpdate }: VotingButto
       });
 
       if (response.ok) {
-        const data = await response.json();
+        await response.json();
         const newVoteCount = hasVoted ? currentVoteCount - 1 : currentVoteCount + 1;
         
         setHasVoted(!hasVoted);

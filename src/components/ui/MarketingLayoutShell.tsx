@@ -2,12 +2,10 @@
 
 import { ReactNode } from "react"
 import { UnifiedHeader } from "../UnifiedHeader"
-import Link from "next/link"
-import Image from "next/image"
 
 interface AuthContext {
   isAuthenticated: boolean
-  user?: any
+  user?: unknown
 }
 
 interface HeaderProps {
