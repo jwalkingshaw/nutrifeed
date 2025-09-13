@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { generateWebSiteSchema, generateOrganizationSchema } from "@/lib/schema";
 import MarketingLayoutWrapper from "@/components/MarketingLayoutWrapper";
+import Footer from "@/components/Footer";
 import { FloatingHaveYourSayButton } from "@/components/FloatingHaveYourSayButton";
 
 const geistSans = Geist({
@@ -100,6 +101,9 @@ export default function RootLayout({
         <MarketingLayoutWrapper>
           <div className="flex-1">
             {children}
+          </div>
+          <div className="w-full">
+            <Footer />
           </div>
           <FloatingHaveYourSayButton />
         </MarketingLayoutWrapper>
