@@ -7,17 +7,8 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo Column */}
-          <div className="col-span-1 flex items-start">
-            <Image 
-              src="/stackcess-full-logo-white.svg" 
-              alt="Stackcess Logo" 
-              width={200}
-              height={56}
-              className="h-14 w-auto"
-            />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
 
           {/* Links Column */}
           <div className="col-span-1">

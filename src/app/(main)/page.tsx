@@ -151,7 +151,8 @@ export default function Home() {
                 <div className="w-2 h-2 bg-orange-400 rounded-full mb-4 sm:mb-6"></div>
                 <h3 className="text-lg sm:text-xl font-medium !text-[#f7f8f8] mb-3 sm:mb-4">Partner Portal</h3>
                 <p className="!text-[#8a8f98] leading-[1.4] text-sm sm:text-base">
-                  Partner portal for instant access to latest assets. Self-service reduces support burden.
+                  Partner portal for instant access to latest assets. 
+                  Self-service reduces support burden.
                 </p>
               </div>
               
@@ -368,7 +369,7 @@ export default function Home() {
               Join the waitlist for early access and exclusive updates.
             </p>
             
-            <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex flex-col items-center justify-center gap-4 mb-6 sm:mb-8 mt-4 sm:mt-6">
               <div className="w-full max-w-md">
                 <EmailSignup
                   source="waitlist"
@@ -383,7 +384,7 @@ export default function Home() {
                 <span className="!text-[#f7f8f8]/40 text-sm hidden sm:inline">or</span>
                 <Link 
                   href="/roadmap"
-                  className="!text-[#f7f8f8]/60 hover:!text-[#f7f8f8] text-sm font-medium transition-colors text-center mt-4 sm:mt-6"
+                  className="!text-[#f7f8f8]/60 hover:!text-[#f7f8f8] text-sm font-medium transition-colors text-center"
                 >
                   Shape our roadmap
                 </Link>
