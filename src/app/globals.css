@@ -7,12 +7,12 @@
 :root {
   /* Dark theme - always dark, no light mode toggle needed */
 
-  /* Primary brand colors */
-  --color-primary: #ff6b35; /* Orange accent for dark theme */
-  --color-primary-foreground: hsl(0 0% 100%);
-  --color-primary-hover: #ff5722;
-  --color-primary-active: #e64a19;
-  --color-primary-subtle: hsl(15 100% 10%);
+  /* Primary brand colors - Dark theme monochrome */
+  --color-primary: #f7f8f8; /* White for dark theme */
+  --color-primary-foreground: #0a0a0a; /* Black text on white */
+  --color-primary-hover: #e1e3e4; /* Light gray hover */
+  --color-primary-active: #c1c5c7; /* Darker gray active */
+  --color-primary-subtle: #1a1a1a; /* Dark gray subtle */
 
   /* Dark theme backgrounds */
   --color-background: #0a0a0a; /* Primary dark background */
@@ -33,15 +33,15 @@
   --color-border: rgba(247, 248, 248, 0.1); /* Semi-transparent borders */
   --color-border-secondary: rgba(247, 248, 248, 0.08);
   --color-border-strong: rgba(247, 248, 248, 0.2);
-  --color-border-focus: #ff6b35;
+  --color-border-focus: #f7f8f8;
   --color-border-hover: rgba(247, 248, 248, 0.15);
 
-  /* Interactive states for dark theme */
+  /* Interactive states for dark theme - monochrome */
   --color-interactive-hover: #1a1a1a;
   --color-interactive-pressed: #111111;
-  --color-interactive-selected: #2a1a0f;
+  --color-interactive-selected: #333333;
   --color-interactive-disabled: #1a1a1a;
-  --color-interactive-focus: #2a1a0f;
+  --color-interactive-focus: #333333;
 
   /* Status colors optimized for dark */
   --color-success: #10b981;
@@ -55,22 +55,26 @@
   --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Legacy Tailwind compatibility - dark theme values */
+  /* Tailwind compatibility - dark theme monochrome values */
   --background: 0 0% 4%; /* #0a0a0a */
   --foreground: 0 0% 97%; /* #f7f8f8 */
-  --primary: 15 100% 60%; /* #ff6b35 */
-  --primary-foreground: 0 0% 100%;
+  --primary: 0 0% 97%; /* #f7f8f8 - white primary */
+  --primary-foreground: 0 0% 4%; /* #0a0a0a - black on white */
   --secondary: 0 0% 7%; /* #111111 */
   --secondary-foreground: 0 0% 97%;
   --muted: 0 0% 7%;
   --muted-foreground: 0 0% 55%; /* #8a8f98 */
-  --accent: 0 0% 10%;
+  --accent: 0 0% 20%; /* #333333 - gray accent */
   --accent-foreground: 0 0% 97%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 97%;
-  --border: 0 0% 97% / 0.1; /* rgba(247, 248, 248, 0.1) */
-  --input: 0 0% 97% / 0.1;
-  --ring: 15 100% 60%;
+  --border: 0 0% 20%; /* Lighter border for dark theme */
+  --input: 0 0% 20%;
+  --ring: 0 0% 97%; /* White focus ring */
+  --card: 0 0% 4%;
+  --card-foreground: 0 0% 97%;
+  --popover: 0 0% 4%;
+  --popover-foreground: 0 0% 97%;
   --radius: 0.5rem;
 }
 
@@ -161,7 +165,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-primary);
+  color: #e1e3e4;
 }
 
 /* Utility classes for dark theme */
@@ -180,10 +184,11 @@ a:hover {
 /* Tailwind base layer */
 @layer base {
   * {
-    border-color: var(--color-border);
+    border-color: rgba(247, 248, 248, 0.1);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: #0a0a0a;
+    color: #f7f8f8;
   }
 }
 
