@@ -177,7 +177,7 @@
 html {
   margin: 0;
   padding: 0;
-  background-color: #0a0a0a;
+  background-color: var(--color-background);
 }
 
 body {
@@ -186,7 +186,7 @@ body {
   font-size: var(--font-size-base);
   line-height: 1.6;
   color: var(--color-foreground);
-  background-color: #0a0a0a !important;
+  background-color: var(--color-background);
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;

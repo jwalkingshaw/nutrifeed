@@ -29,7 +29,7 @@ export function MarketingLayoutShell({
   headerProps 
 }: MarketingLayoutShellProps) {
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-background">
       {announcementBar}
       
       {/* Use the unified header with marketing variant */}
@@ -44,8 +44,8 @@ export function MarketingLayoutShell({
         {/* Navigation items for mobile menu could go here */}
       </UnifiedHeader>
 
-      {/* Main content */}
-      <main className="flex-1">
+      {/* Main content - account for announcement bar (3rem) + header (67px) */}
+      <main className="flex-1 pt-[115px]">
         {children}
       </main>
     </div>

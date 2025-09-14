@@ -30,28 +30,28 @@ export function UnifiedHeader({
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   
-  // Marketing header with black background - positioned below announcement bar
-  const headerClasses = `fixed top-[3rem] left-0 right-0 z-[60] bg-[#0a0a0a] h-[67px] transition-all duration-300 ${isScrolled ? 'border-b border-white/10' : 'border-b border-transparent'}`
+  // Marketing header with secondary background - positioned below announcement bar
+  const headerClasses = `fixed top-[3rem] left-0 right-0 z-[60] h-[67px] transition-all duration-300 ${isScrolled ? 'border-b border-border' : 'border-b border-transparent'}`
   
   return (
-    <header className={headerClasses}>
+    <header className={headerClasses} style={{ backgroundColor: '#0a0a0a' }}>
       <div className="w-full px-4">
         <div className="flex items-center justify-between h-[67px] w-full relative">
           {/* Left side: Logo */}
           <div className="flex items-center">
             <Link href={logoHref} className="flex items-center space-x-2">
-              {/* Mobile: Show just icon */}
-              <Image 
-                src="/stackcess-icon-white-logo.svg" 
-                alt="Stackcess" 
+              {/* Mobile: Show just white icon */}
+              <Image
+                src="/stackcess-icon-white-logo.svg"
+                alt="Stackcess"
                 width={24}
                 height={24}
                 className="h-6 w-6 flex-shrink-0 sm:hidden"
               />
-              {/* Desktop: Show full logo */}
-              <Image 
-                src="/stackcess-full-logo-white.svg" 
-                alt="Stackcess" 
+              {/* Desktop: Show full white logo */}
+              <Image
+                src="/stackcess-full-logo-white.svg"
+                alt="Stackcess"
                 width={120}
                 height={24}
                 className="h-6 w-auto hidden sm:block flex-shrink-0"

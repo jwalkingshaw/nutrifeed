@@ -44,17 +44,13 @@ export default function RoadMapClient() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] pt-[67px]">
+    <div className="min-h-screen bg-[#0a0a0a]">
       {/* Hero Section */}
       <section className="bg-[#0a0a0a] py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 sm:mb-6 tracking-[-0.02em] leading-[1.05]">
             Help us build your stack
           </h1>
-          <p className="text-lg sm:text-xl !text-[#8a8f98] max-w-3xl mx-auto leading-[1.4] mb-6 sm:mb-8 px-4 sm:px-0">
-            Together we&apos;re building the OS for Sports Supplements. Share your ideas and vote on features 
-            that will help solve the biggest challenges facing sports supplement brands and retailers.
-          </p>
           
           {/* Submit Feature Request Button */}
           <button

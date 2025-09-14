@@ -42,13 +42,13 @@ export default function Home() {
             
             {/* Focused CTA */}
             <div id="hero-signup" className="mb-6 sm:mb-8">
-              <EmailSignup 
+              <EmailSignup
                 source="waitlist"
                 placeholder="Enter your work email"
                 buttonText="Join Waitlist"
                 successMessage="Welcome to the stack!"
                 size="default"
-                className="w-full sm:w-auto [&_form]:flex [&_form]:flex-col [&_form]:gap-3 [&_form]:items-stretch [&_form]:w-full [&_form]:max-w-md [&_form]:mx-auto sm:[&_form]:flex-row sm:[&_form]:items-center sm:[&_form]:max-w-none sm:[&_form]:mx-0 [&_input]:bg-[#0a0a0a]/5 [&_input]:border-white/10 [&_input]:!text-[#f7f8f8] [&_input]:placeholder-white/40 [&_input]:backdrop-blur-sm [&_input]:w-full [&_input]:h-12 [&_input]:text-base sm:[&_input]:w-80 sm:[&_input]:h-10 sm:[&_input]:text-sm [&_button]:bg-white [&_button]:!text-black [&_button]:hover:bg-white/90 [&_button]:font-medium [&_button]:px-6 [&_button]:h-12 [&_button]:text-base [&_button]:w-full sm:[&_button]:w-auto sm:[&_button]:h-10 sm:[&_button]:text-sm"
+                variant="secondary"
               />
             </div>
             
@@ -374,13 +374,13 @@ export default function Home() {
             
             <div className="flex flex-col items-center justify-center gap-4">
               <div className="w-full max-w-md">
-                <EmailSignup 
+                <EmailSignup
                   source="waitlist"
-                  placeholder="Enter your email"
+                  placeholder="Enter your work email"
                   buttonText="Join Waitlist"
                   successMessage="You're in! We'll keep you updated."
                   size="lg"
-                  className="w-full [&_form]:flex [&_form]:flex-col [&_form]:gap-3 [&_form]:items-stretch [&_form]:w-full sm:[&_form]:flex-row sm:[&_form]:items-center sm:[&_form]:max-w-lg sm:[&_form]:mx-auto [&_input]:bg-[#0a0a0a]/5 [&_input]:border-white/10 [&_input]:!text-[#f7f8f8] [&_input]:placeholder-white/40 [&_input]:w-full [&_input]:h-12 [&_input]:text-base sm:[&_input]:h-10 sm:[&_input]:text-sm [&_button]:bg-white [&_button]:text-black [&_button]:hover:bg-white/90 [&_button]:w-full [&_button]:h-12 [&_button]:text-base sm:[&_button]:w-auto sm:[&_button]:h-10 sm:[&_button]:text-sm"
+                  variant="secondary"
                 />
               </div>
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">

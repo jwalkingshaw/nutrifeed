@@ -6,30 +6,8 @@
    - Environments: .env.local, .env
 
    Creating an optimized production build ...
- ✓ Compiled successfully in 11.0s
+ ✓ Compiled successfully in 7.0s
    Linting and checking validity of types ...
-
-./src/app/(main)/pricing/page.tsx
-9:10  Warning: 'selectedPlan' is assigned a value but never used.  @typescript-eslint/no-unused-vars
-
-info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
-Failed to compile.
-
-./src/app/api/related-articles/route.ts:55:29
-Type error: 'redis' is possibly 'null'.
-
-[0m [90m 53 |[39m       relatedPosts[33m.[39mmap([36masync[39m (post[33m:[39m [33mBlogPost[39m) [33m=>[39m {
- [90m 54 |[39m         [36mconst[39m viewKey [33m=[39m [32m`views:${post.slug.current}`[39m
-[31m[1m>[22m[39m[90m 55 |[39m         [36mconst[39m views [33m=[39m [36mawait[39m redis[33m.[39m[36mget[39m(viewKey) [33m||[39m [35m0[39m
- [90m    |[39m                             [31m[1m^[22m[39m
- [90m 56 |[39m         
- [90m 57 |[39m         [90m// Calculate how many tags match[39m
- [90m 58 |[39m         [36mconst[39m matchingTags [33m=[39m post[33m.[39mtags[33m?[39m[33m.[39mfilter((tag[33m:[39m string) [33m=>[39m tags[33m.[39mincludes(tag)) [33m||[39m [][0m
-Next.js build worker exited with code: 1 and signal: null
-npm error Lifecycle script `build` failed with error:
-npm error code 1
-npm error path C:\Users\jason\tradetool\apps\marketing-site
-npm error workspace @tradetool/public-site@0.1.0
-npm error location C:\Users\jason\tradetool\apps\marketing-site
-npm error command failed
-npm error command C:\WINDOWS\system32\cmd.exe /d /s /c next build
+ ⨯ ESLint: Failed to load parser './parser.js' declared in ' » eslint-config-next/core-web-vitals » C:\Users\jason\tradetool\node_modules\eslint-config-next\index.js': Cannot find module 'next/dist/compiled/babel/eslint-parser' Require stack: - C:\Users\jason\tradetool\node_modules\eslint-config-next\parser.js - C:\Users\jason\tradetool\node_modules\@eslint\eslintrc\lib\config-array-factory.js
+   Collecting page data ...
+   Generating static pages (0/20) ...

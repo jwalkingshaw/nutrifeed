@@ -180,7 +180,7 @@ export function FeatureSubmissionForm({ onFeatureSubmitted }: FeatureSubmissionF
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-medium py-2 px-4 h-10 rounded-lg text-sm"
+        className="w-full bg-black hover:bg-black/90 disabled:bg-black/50 text-white font-medium py-2 px-4 h-10 rounded-lg text-sm"
       >
         {isSubmitting ? "Submitting..." : "Submit Feature Request"}
       </button>

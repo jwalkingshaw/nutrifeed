@@ -8,12 +8,6 @@ export default function AnnouncementBar() {
       <div className="text-center max-w-full overflow-hidden">
         <div className="line-clamp-2" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' as const, overflow: 'hidden' }}>
           <span className="inline">NEW: Discover the operating system for sports nutrition brands.</span>
-          <Link 
-            href="/" 
-            className="hover:text-primary transition-colors duration-200 inline whitespace-nowrap font-medium text-primary"
-          >
-            →
-          </Link>
         </div>
       </div>
     </div>

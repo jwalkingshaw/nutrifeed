@@ -101,31 +101,33 @@ export function EmailSignup({
 
   return (
     <form onSubmit={handleSubmit} className={`space-y-3 ${className}`}>
-      <div className="flex gap-2">
-        <div className="relative flex-1">
-          <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={placeholder}
-            className={`
-              w-full pl-10 pr-4 py-1.5 h-9 border border-gray-300 rounded-md text-[15px]
-              focus:ring-2 focus:ring-blue-500 focus:border-transparent
-              disabled:opacity-50 disabled:cursor-not-allowed
-              ${size === 'sm' ? 'text-sm py-1 h-8' : ''}
-              ${size === 'lg' ? 'text-lg py-2.5 h-10' : ''}
-            `}
-            disabled={state.status === 'loading'}
-            required
-          />
-        </div>
+      <div className="flex flex-col sm:flex-row gap-2">
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder={placeholder}
+          className={`
+            w-full sm:w-60 px-4 py-2 border border-gray-300 rounded-md text-[15px]
+            focus:ring-2 focus:ring-blue-500 focus:border-transparent
+            disabled:opacity-50 disabled:cursor-not-allowed
+            placeholder:text-gray-500
+            ${size === 'sm' ? 'text-sm py-1.5 h-8' : 'h-10'}
+            ${size === 'lg' ? 'text-lg py-3 h-12' : ''}
+          `}
+          disabled={state.status === 'loading'}
+          required
+        />
         <Button
           type="submit"
           disabled={state.status === 'loading' || !email}
           variant={variant}
           size="default"
-          className="min-w-[100px]"
+          className={`
+            w-full sm:w-auto px-6
+            ${size === 'sm' ? 'h-8 text-sm' : 'h-10'}
+            ${size === 'lg' ? 'h-12 text-lg' : ''}
+          `}
         >
           {state.status === 'loading' ? (
             <>
