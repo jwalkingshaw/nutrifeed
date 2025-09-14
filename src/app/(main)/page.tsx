@@ -22,7 +22,7 @@ export default function Home() {
       />
       
       <div className="bg-[#0a0a0a]">
-        {/* Hero Section - Linear style left-aligned */}
+        {/* Hero Section */}
         <section className="bg-[#0a0a0a] -mt-16 pt-24 pb-16 sm:pb-24 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto pt-8">
             {/* Subtle badge */}
@@ -30,9 +30,9 @@ export default function Home() {
               <span className="text-xs !text-[#8a8f98] font-medium tracking-wide">SPORTS SUPPLEMENTS OPERATING SYSTEM</span>
             </div>
             
-            {/* Main headline - Linear typography precision */}
+            {/* Main headline */}
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 tracking-[-0.02em] leading-[1.05] max-w-4xl">
-              <SplitText delay={0.1}>Your supplement stack. Organized, shared, scaled.</SplitText>
+              <SplitText delay={0.1}>Your supplement content stack. Organized, shared, scaled.</SplitText>
             </div>
             
             {/* Clean subheadline */}
@@ -41,12 +41,12 @@ export default function Home() {
             </p>
             
             {/* Focused CTA */}
-            <div id="hero-signup" className="mb-6 sm:mb-8">
+            <div id="hero-signup" className="mb-6 sm:mb-8 mt-4 sm:mt-6">
               <EmailSignup
                 source="waitlist"
                 placeholder="Enter your work email"
                 buttonText="Join Waitlist"
-                successMessage="Welcome to the stack!"
+                successMessage="Welcome to the journey!"
                 size="default"
                 variant="secondary"
               />
@@ -60,7 +60,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0a0a0a]/5 border border-white/10">
                 <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                <span className="text-xs !text-[#8a8f98] font-medium">Compliance Tracking</span>
+                <span className="text-xs !text-[#8a8f98] font-medium">Asset Management</span>
               </div>
               <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0a0a0a]/5 border border-white/10">
                 <div className="w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
@@ -70,16 +70,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Problem Section - Sanity clean style */}
+        {/* Problem Section */}
         <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 sm:mb-6 tracking-[-0.02em] leading-[1.1]">
-                Scattered systems are<br className="hidden sm:block" />breaking your stack
+                Scattered systems are <br className="hidden sm:block" />breaking your teams
               </h2>
               <div className="flex justify-center">
                 <p className="text-lg sm:text-xl !text-[#f7f8f8]/60 max-w-2xl leading-[1.4] text-center px-4 sm:px-0">
-                  Sports supplement brands struggle with fragmented operations and disconnected partnerships.
+                  Sports supplement brands struggle with fragmented operations across multiple platforms that are disconnected from stakeholders.
                 </p>
               </div>
             </div>
@@ -98,8 +98,7 @@ export default function Home() {
                 <div className="w-2 h-2 bg-red-500 rounded-full mb-4 sm:mb-6 mx-auto sm:mx-0"></div>
                 <h3 className="text-lg sm:text-xl font-medium !text-[#f7f8f8] mb-3 sm:mb-4">Compliance Issues</h3>
                 <p className="!text-[#f7f8f8]/60 leading-[1.4] text-sm sm:text-base">
-                  Regulatory documents buried when changes hit. 
-                  Manual tracking leads to costly compliance failures.
+                  Regulatory documents buried when changes hit. Manual tracking leads to costly compliance failures.
                 </p>
               </div>
               
@@ -107,15 +106,14 @@ export default function Home() {
                 <div className="w-2 h-2 bg-red-500 rounded-full mb-4 sm:mb-6 mx-auto sm:mx-0"></div>
                 <h3 className="text-lg sm:text-xl font-medium !text-[#f7f8f8] mb-3 sm:mb-4">Launch Delays</h3>
                 <p className="!text-[#f7f8f8]/60 leading-[1.4] text-sm sm:text-base">
-                  New product launches delayed by coordination chaos 
-                  across your distribution network.
+                  New product launches delayed by coordination chaos across your team and partner netork.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Solution Section - Linear precision */}
+        {/* Solution Section */}
         <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-8 sm:mb-12">
@@ -125,7 +123,7 @@ export default function Home() {
               </h2>
               <div className="flex justify-center">
                 <p className="text-lg sm:text-xl !text-[#8a8f98] max-w-2xl leading-[1.4] text-center px-4 sm:px-0">
-                  Centralize operations, automate compliance, and connect your entire supplement ecosystem.
+                  Centralize operations, documenentation and assets, and connect your entire supplement ecosystem.
                 </p>
               </div>
             </div>
@@ -153,8 +151,7 @@ export default function Home() {
                 <div className="w-2 h-2 bg-orange-400 rounded-full mb-4 sm:mb-6"></div>
                 <h3 className="text-lg sm:text-xl font-medium !text-[#f7f8f8] mb-3 sm:mb-4">Partner Portal</h3>
                 <p className="!text-[#8a8f98] leading-[1.4] text-sm sm:text-base">
-                  Partner portal for instant access to latest assets. 
-                  Self-service reduces support burden.
+                  Partner portal for instant access to latest assets. Self-service reduces support burden.
                 </p>
               </div>
               
@@ -170,20 +167,19 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Engagement Section - Sanity clean */}
+        {/* Engagement Section*/}
         <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 sm:mb-6 tracking-[-0.02em] leading-[1.1]">
-              Help us build the platform<br className="hidden sm:block" />your stack deserves
-            </h2>
+              Help us build the platform</h2>
             <p className="text-lg sm:text-xl !text-[#f7f8f8]/60 mb-6 sm:mb-8 leading-[1.4] px-4 sm:px-0">
               We&apos;re building Stackcess with the sports supplement community. 
               Your input shapes every feature we develop.
             </p>
             
-            <Link 
+            <Link
               href="/roadmap"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors w-full sm:w-auto"
+              className="bg-white !text-black font-medium px-6 py-3 rounded-lg text-base hover:bg-white/90 transition-colors w-full sm:w-auto inline-flex items-center justify-center mt-4 sm:mt-6"
             >
               Submit Feature Request
             </Link>
@@ -287,7 +283,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Section - Sanity clean */}
+        {/* Stats Section */}
         <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a0a0a]">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium !text-[#f7f8f8] mb-8 sm:mb-12 tracking-[-0.02em] leading-[1.1]">
@@ -323,7 +319,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Industry Problems - Linear cards */}
+        {/* Industry Problems */}
         <section className="py-24 px-6 bg-[#0a0a0a]">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -387,7 +383,7 @@ export default function Home() {
                 <span className="!text-[#f7f8f8]/40 text-sm hidden sm:inline">or</span>
                 <Link 
                   href="/roadmap"
-                  className="!text-[#f7f8f8]/60 hover:!text-[#f7f8f8] text-sm font-medium transition-colors text-center"
+                  className="!text-[#f7f8f8]/60 hover:!text-[#f7f8f8] text-sm font-medium transition-colors text-center mt-4 sm:mt-6"
                 >
                   Shape our roadmap
                 </Link>

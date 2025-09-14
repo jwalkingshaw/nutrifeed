@@ -55,7 +55,7 @@ export default function RoadMapClient() {
           {/* Submit Feature Request Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-white text-black font-medium px-6 py-3 rounded-lg text-base hover:bg-white/90 transition-colors w-full sm:w-auto"
+            className="bg-white text-black font-medium px-6 py-3 rounded-lg text-base hover:bg-white/90 transition-colors w-full sm:w-auto mt-4 sm:mt-6"
           >
             Submit a Feature Request
           </button>

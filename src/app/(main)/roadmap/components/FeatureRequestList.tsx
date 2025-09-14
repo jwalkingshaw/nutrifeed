@@ -11,11 +11,11 @@ interface FeatureRequestListProps {
 }
 
 const statusColors = {
-  pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
-  approved: "bg-green-100 text-green-800 border-green-200", 
-  rejected: "bg-red-100 text-red-800 border-red-200",
-  in_development: "bg-blue-100 text-blue-800 border-blue-200",
-  completed: "bg-purple-100 text-purple-800 border-purple-200",
+  pending: "bg-[#333333] text-[#f7f8f8] border-[#f7f8f8]/20",
+  approved: "bg-[#f7f8f8] text-[#0a0a0a] border-[#f7f8f8]/20",
+  rejected: "bg-[#222222] text-[#8a8f98] border-[#f7f8f8]/10",
+  in_development: "bg-[#333333] text-[#f7f8f8] border-[#f7f8f8]/20",
+  completed: "bg-[#444444] text-[#f7f8f8] border-[#f7f8f8]/20",
 };
 
 const statusLabels = {
@@ -84,9 +84,9 @@ export function FeatureRequestList({
           <button
             onClick={() => setSortBy('votes')}
             className={`h-8 px-3 text-xs font-medium rounded-lg ${
-              sortBy === 'votes' 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-gray-100 text-gray-700'
+              sortBy === 'votes'
+                ? 'bg-[#f7f8f8] text-[#0a0a0a]'
+                : 'bg-[#333333] text-[#f7f8f8]'
             }`}
           >
             Most Voted
@@ -94,9 +94,9 @@ export function FeatureRequestList({
           <button
             onClick={() => setSortBy('date')}
             className={`h-8 px-3 text-xs font-medium rounded-lg ${
-              sortBy === 'date' 
-                ? 'bg-blue-600 text-white' 
-                : 'bg-gray-100 text-gray-700'
+              sortBy === 'date'
+                ? 'bg-[#f7f8f8] text-[#0a0a0a]'
+                : 'bg-[#333333] text-[#f7f8f8]'
             }`}
           >
             Newest
@@ -112,7 +112,7 @@ export function FeatureRequestList({
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
                   <h3 className="font-semibold text-[#f7f8f8] text-lg">{request.title}</h3>
-                  <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full border ${statusColors[request.status]}`}>
+                  <span className={`inline-flex self-start px-2 py-1 text-xs font-medium rounded-full border ${statusColors[request.status]}`}>
                     {statusLabels[request.status]}
                   </span>
                 </div>
