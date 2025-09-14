@@ -1,175 +1,80 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Marketing Site - Dark Theme Globals */
+/* Optimized for dark theme with #f7f8f8 text colors */
 
-/* Enhanced Unified Design Tokens - Sanity.io inspired */
 :root {
+  /* Dark theme - always dark, no light mode toggle needed */
+
   /* Primary brand colors */
-  --color-primary: #0052ff; /* Primary brand blue */
-  --color-primary-foreground: hsl(0 0% 98%);
-  --color-primary-hover: #0041cc;
-  --color-primary-active: #003399;
-  --color-primary-subtle: hsl(217 91% 97%);
-  
-  /* Secondary colors */
-  --color-secondary: hsl(217 91% 60%);
-  --color-secondary-foreground: hsl(0 0% 98%);
-  --color-secondary-hover: hsl(221 83% 53%);
-  --color-secondary-active: hsl(224 76% 48%);
-  --color-secondary-subtle: hsl(214 100% 97%);
-  
-  /* Background hierarchy */
-  --color-background: hsl(0 0% 100%);
-  --color-background-secondary: hsl(210 25% 99%);
-  --color-background-tertiary: hsl(210 20% 98%);
-  --color-background-elevated: hsl(0 0% 100%);
-  --color-background-sunken: hsl(210 25% 99%);
-  --color-background-overlay: hsl(0 0% 0% / 0.5);
-  
-  /* Text hierarchy */
-  --color-foreground: hsl(221 39% 11%);
-  --color-foreground-secondary: hsl(216 16% 30%);
-  --color-foreground-tertiary: hsl(220 9% 46%);
-  --color-foreground-muted: hsl(218 11% 65%);
-  --color-foreground-subtle: hsl(215 11% 80%);
-  
-  /* Border system */
-  --color-border: hsl(220 13% 91%);
-  --color-border-secondary: hsl(218 11% 94%);
-  --color-border-strong: hsl(216 12% 84%);
-  --color-border-focus: hsl(20 100% 50%);
-  --color-border-hover: hsl(217 12% 87%);
-  
-  /* Interactive states */
-  --color-interactive-hover: hsl(210 20% 98%);
-  --color-interactive-pressed: hsl(220 14% 96%);
-  --color-interactive-selected: hsl(20 100% 97%);
-  --color-interactive-disabled: hsl(218 11% 94%);
-  --color-interactive-focus: hsl(20 100% 94%);
-  
-  /* Status Colors */
-  --color-success: hsl(142 76% 36%);
-  --color-success-foreground: hsl(0 0% 98%);
-  --color-success-light: hsl(142 76% 95%);
-  --color-warning: hsl(38 92% 50%);
-  --color-warning-foreground: hsl(0 0% 98%);
-  --color-warning-light: hsl(38 92% 95%);
-  --color-error: hsl(0 84% 60%);
-  --color-error-foreground: hsl(0 0% 98%);
-  --color-error-light: hsl(0 84% 95%);
-  
-  /* Typography system */
+  --color-primary: #ff6b35; /* Orange accent for dark theme */
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-primary-hover: #ff5722;
+  --color-primary-active: #e64a19;
+  --color-primary-subtle: hsl(15 100% 10%);
+
+  /* Dark theme backgrounds */
+  --color-background: #0a0a0a; /* Primary dark background */
+  --color-background-secondary: #111111;
+  --color-background-tertiary: #1a1a1a;
+  --color-background-elevated: #1a1a1a;
+  --color-background-sunken: #050505;
+  --color-background-overlay: hsl(0 0% 0% / 0.8);
+
+  /* Dark theme text hierarchy - optimized for readability */
+  --color-foreground: #f7f8f8; /* Primary readable text */
+  --color-foreground-secondary: #e1e3e4; /* Secondary text */
+  --color-foreground-tertiary: #c1c5c7; /* Tertiary text */
+  --color-foreground-muted: #8a8f98; /* Muted text */
+  --color-foreground-subtle: #666b73; /* Subtle text */
+
+  /* Dark theme borders */
+  --color-border: rgba(247, 248, 248, 0.1); /* Semi-transparent borders */
+  --color-border-secondary: rgba(247, 248, 248, 0.08);
+  --color-border-strong: rgba(247, 248, 248, 0.2);
+  --color-border-focus: #ff6b35;
+  --color-border-hover: rgba(247, 248, 248, 0.15);
+
+  /* Interactive states for dark theme */
+  --color-interactive-hover: #1a1a1a;
+  --color-interactive-pressed: #111111;
+  --color-interactive-selected: #2a1a0f;
+  --color-interactive-disabled: #1a1a1a;
+  --color-interactive-focus: #2a1a0f;
+
+  /* Status colors optimized for dark */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-success-foreground: #f7f8f8;
+  --color-warning-foreground: #f7f8f8;
+  --color-error-foreground: #f7f8f8;
+
+  /* Typography */
   --font-family-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --font-family-serif: ui-serif, Georgia, serif;
   --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
-  
-  /* Font sizes */
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 3.75rem;
-  
-  /* Component spacing */
-  --spacing-component-xs: 0.25rem;
-  --spacing-component-sm: 0.5rem;
-  --spacing-component-md: 0.75rem;
-  --spacing-component-lg: 1rem;
-  --spacing-component-xl: 1.5rem;
-  --spacing-component-2xl: 2rem;
-  
-  /* Layout spacing */
-  --spacing-layout-xs: 1rem;
-  --spacing-layout-sm: 1.5rem;
-  --spacing-layout-md: 2rem;
-  --spacing-layout-lg: 3rem;
-  --spacing-layout-xl: 4rem;
-  --spacing-layout-2xl: 6rem;
-  
-  /* Border radius */
-  --border-radius-sm: 0.125rem;
-  --border-radius-default: 0.25rem;
-  --border-radius-md: 0.375rem;
-  --border-radius-lg: 0.5rem;
-  --border-radius-xl: 0.75rem;
-  --border-radius-2xl: 1rem;
-  --border-radius-full: 9999px;
-  
-  /* Box shadows */
-  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-medium: 0 4px 8px 0 rgb(0 0 0 / 0.08), 0 2px 4px 0 rgb(0 0 0 / 0.06);
-  --shadow-hard: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-focus: 0 0 0 2px hsl(25 95% 53% / 0.2);
-  
-  /* Legacy compatibility */
-  --background: 0 0% 100%;
-  --foreground: 221 39% 11%;
-  --primary: 220 100% 50%; /* #0052ff - Primary brand blue */
-  --primary-foreground: 0 0% 98%;
+
+  /* Legacy Tailwind compatibility - dark theme values */
+  --background: 0 0% 4%; /* #0a0a0a */
+  --foreground: 0 0% 97%; /* #f7f8f8 */
+  --primary: 15 100% 60%; /* #ff6b35 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 7%; /* #111111 */
+  --secondary-foreground: 0 0% 97%;
+  --muted: 0 0% 7%;
+  --muted-foreground: 0 0% 55%; /* #8a8f98 */
+  --accent: 0 0% 10%;
+  --accent-foreground: 0 0% 97%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 97%;
+  --border: 0 0% 97% / 0.1; /* rgba(247, 248, 248, 0.1) */
+  --input: 0 0% 97% / 0.1;
+  --ring: 15 100% 60%;
   --radius: 0.5rem;
 }
 
-.dark {
-  /* Enhanced dark theme - Sanity.io inspired */
-  --color-primary: hsl(27 96% 61%); /* Slightly lighter for dark */
-  --color-primary-hover: hsl(31 97% 72%);
-  --color-primary-active: hsl(25 95% 53%);
-  --color-primary-subtle: hsl(15 75% 28%);
-  
-  --color-secondary: hsl(213 94% 68%);
-  --color-secondary-hover: hsl(212 96% 78%);
-  --color-secondary-active: hsl(217 91% 60%);
-  --color-secondary-subtle: hsl(224 64% 33%);
-  
-  /* Background hierarchy */
-  --color-background: hsl(224 71% 4%);
-  --color-background-secondary: hsl(222 47% 8%);
-  --color-background-tertiary: hsl(221 39% 11%);
-  --color-background-elevated: hsl(221 39% 11%);
-  --color-background-sunken: hsl(222 47% 8%);
-  --color-background-overlay: hsl(0 0% 0% / 0.8);
-  
-  /* Text hierarchy */
-  --color-foreground: hsl(210 20% 98%);
-  --color-foreground-secondary: hsl(216 12% 84%);
-  --color-foreground-tertiary: hsl(218 11% 65%);
-  --color-foreground-muted: hsl(220 9% 46%);
-  --color-foreground-subtle: hsl(215 14% 34%);
-  
-  /* Border system */
-  --color-border: hsl(215 28% 17%);
-  --color-border-secondary: hsl(217 33% 14%);
-  --color-border-strong: hsl(217 19% 27%);
-  --color-border-focus: hsl(27 96% 61%);
-  --color-border-hover: hsl(218 22% 24%);
-  
-  /* Interactive states */
-  --color-interactive-hover: hsl(221 39% 11%);
-  --color-interactive-pressed: hsl(217 33% 14%);
-  --color-interactive-selected: hsl(15 75% 28%);
-  --color-interactive-disabled: hsl(215 28% 17%);
-  --color-interactive-focus: hsl(9 80% 15%);
-  
-  /* Status colors (enhanced for dark) */
-  --color-success: hsl(142 76% 45%);
-  --color-success-light: hsl(142 76% 15%);
-  --color-warning: hsl(38 92% 60%);
-  --color-warning-light: hsl(38 92% 15%);
-  --color-error: hsl(0 84% 70%);
-  --color-error-light: hsl(0 84% 15%);
-  
-  /* Legacy compatibility */
-  --background: 224 71% 4%;
-  --foreground: 210 20% 98%;
-}
-
-/* Enhanced base styles - Sanity.io inspired */
+/* Base styles optimized for dark theme */
 * {
   box-sizing: border-box;
 }
@@ -177,16 +82,16 @@
 html {
   margin: 0;
   padding: 0;
-  background-color: var(--color-background);
+  background-color: #0a0a0a;
 }
 
 body {
   font-family: var(--font-family-sans);
   font-weight: 400;
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   line-height: 1.6;
-  color: var(--color-foreground);
-  background-color: var(--color-background);
+  color: #f7f8f8; /* Direct color instead of variable */
+  background-color: #0a0a0a; /* Direct color instead of variable */
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
@@ -194,96 +99,76 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Enhanced focus styles */
+/* Focus styles for dark theme */
 *:focus-visible {
   outline: none;
-  box-shadow: var(--shadow-focus);
+  box-shadow: 0 0 0 2px var(--color-primary);
 }
 
-/* Enhanced selection styles */
+/* Selection styles for dark theme */
 ::selection {
   background-color: var(--color-primary-subtle);
-  color: var(--color-foreground);
+  color: #f7f8f8;
 }
 
-/* Scrollbar styling */
+/* Scrollbar styling for dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background-secondary);
+  background: #111111;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-strong);
-  border-radius: var(--border-radius-full);
+  background: rgba(247, 248, 248, 0.2);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-foreground-muted);
+  background: rgba(247, 248, 248, 0.3);
 }
 
-/* Enhanced typography hierarchy */
+/* Typography hierarchy optimized for dark theme */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-sans);
   font-weight: 600;
   line-height: 1.2;
-  color: var(--color-foreground);
+  color: #f7f8f8; /* Direct color for headings */
   margin: 0;
   letter-spacing: -0.025em;
 }
 
-h1 {
-  font-size: var(--font-size-5xl);
-  font-weight: 700;
-}
-
-h2 {
-  font-size: var(--font-size-4xl);
-  font-weight: 600;
-}
-
-h3 {
-  font-size: var(--font-size-3xl);
-  font-weight: 600;
-}
-
-h4 {
-  font-size: var(--font-size-2xl);
-  font-weight: 600;
-}
-
-h5 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-}
-
-h6 {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-}
+h1 { font-size: 3rem; font-weight: 700; }
+h2 { font-size: 2.25rem; font-weight: 600; }
+h3 { font-size: 1.875rem; font-weight: 600; }
+h4 { font-size: 1.5rem; font-weight: 600; }
+h5 { font-size: 1.25rem; font-weight: 600; }
+h6 { font-size: 1.125rem; font-weight: 600; }
 
 p {
-  color: var(--color-foreground-secondary);
+  color: #e1e3e4; /* Secondary text color */
   line-height: 1.75;
   margin: 0;
 }
 
-/* Global link styles removed - components handle their own styling */
+/* Link styles for dark theme */
+a {
+  color: #f7f8f8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-/* Header now uses unified styling from shell component */
-
-/* Hover effects */
-.hover-custom-orange:hover {
+a:hover {
   color: var(--color-primary);
 }
 
-/* Link cursor styles */
-a, button, [role="link"], [role="button"], .cursor-pointer {
-  cursor: pointer;
-}
+/* Utility classes for dark theme */
+.text-primary { color: #f7f8f8 !important; }
+.text-secondary { color: #e1e3e4 !important; }
+.text-muted { color: #8a8f98 !important; }
+.text-subtle { color: #666b73 !important; }
 
 /* Layout container */
 .layout-container {
@@ -292,57 +177,27 @@ a, button, [role="link"], [role="button"], .cursor-pointer {
   padding: 2rem 1rem;
 }
 
-/* Prose styles for typography plugin */
-.prose p {
-  font-family: var(--font-family-sans);
-  font-weight: 400;
-  font-size: 1rem;
-  color: var(--color-foreground-secondary);
-}
-
-.prose li {
-  font-family: var(--font-family-sans);
-  font-weight: 400;
-  font-size: 1rem;
-  color: var(--color-foreground-secondary);
-}
-
-/* Tailwind layer */
+/* Tailwind base layer */
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
   }
   body {
     @apply bg-background text-foreground;
   }
 }
 
-/* Legacy compatibility - map old color names to new variables */
-@theme inline {
-  --color-background: var(--color-background);
-  --color-foreground: var(--color-foreground);
-  --color-card: var(--color-background);
-  --color-card-foreground: var(--color-foreground);
-  --color-popover: var(--color-background);
-  --color-popover-foreground: var(--color-foreground);
-  --color-primary: var(--color-primary);
-  --color-primary-foreground: var(--color-primary-foreground);
-  --color-secondary: var(--color-background-secondary);
-  --color-secondary-foreground: var(--color-foreground);
-  --color-muted: var(--color-background-secondary);
-  --color-muted-foreground: var(--color-foreground-muted);
-  --color-accent: var(--color-background-secondary);
-  --color-accent-foreground: var(--color-foreground);
-  --color-destructive: var(--color-error);
-  --color-border: var(--color-border);
-  --color-input: var(--color-border);
-  --color-ring: var(--color-foreground-tertiary);
-  --color-sidebar: var(--color-background);
-  --color-sidebar-foreground: var(--color-foreground);
-  --color-sidebar-primary: var(--color-foreground);
-  --color-sidebar-primary-foreground: var(--color-background);
-  --color-sidebar-accent: var(--color-background);
-  --color-sidebar-accent-foreground: var(--color-foreground);
-  --color-sidebar-border: var(--color-background);
-  --color-sidebar-ring: var(--color-background);
+/* Dark theme specific overrides for better readability */
+.prose p,
+.prose li {
+  color: #e1e3e4 !important;
+}
+
+/* Ensure all text in roadmap components uses proper colors */
+.roadmap-text {
+  color: #f7f8f8 !important;
+}
+
+.roadmap-text-secondary {
+  color: #e1e3e4 !important;
 }
