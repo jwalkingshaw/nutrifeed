@@ -49,13 +49,13 @@ export default function RoadMapClient() {
       <section className="bg-[#0a0a0a] py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 sm:mb-6 tracking-[-0.02em] leading-[1.05]">
-            Help us build your stack
+            Help us build a unified platform for the sports supplements industry
           </h1>
           
           {/* Submit Feature Request Button */}
           <button
             onClick={() => setIsModalOpen(true)}
-            className="bg-white text-black font-medium px-6 py-3 rounded-lg text-base hover:bg-white/90 transition-colors w-full sm:w-auto mt-4 sm:mt-6"
+            className="bg-white text-black font-medium px-6 py-3 rounded-lg text-base hover:bg-white/90 transition-colors w-full sm:w-auto mt-4 sm:mt-6 cursor-pointer"
           >
             Submit a Feature Request
           </button>

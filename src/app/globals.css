@@ -162,10 +162,26 @@ a {
   color: #f7f8f8;
   text-decoration: none;
   transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 a:hover {
   color: #e1e3e4;
+}
+
+/* Button cursor styles */
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Interactive element cursor styles */
+[role="button"],
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* Utility classes for dark theme */

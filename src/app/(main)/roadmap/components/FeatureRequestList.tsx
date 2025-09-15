@@ -119,7 +119,7 @@ export function FeatureRequestList({
                 <p className="text-[#f7f8f8] mb-4 leading-relaxed">
                   {request.description}
                 </p>
-                <div className="text-sm text-[#f7f8f8]">
+                <div className="text-sm text-[#f7f8f8] mt-4">
                   Submitted by <span className="font-medium">{request.submitter_name}</span> on {formatDate(request.created_at)}
                 </div>
               </div>

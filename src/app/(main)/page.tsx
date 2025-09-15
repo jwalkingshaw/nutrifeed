@@ -32,7 +32,7 @@ export default function Home() {
             
             {/* Main headline */}
             <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium !text-[#f7f8f8] mb-4 tracking-[-0.02em] leading-[1.05] max-w-4xl">
-              <SplitText delay={0.1}>Your supplement content stack. Organized, shared, scaled.</SplitText>
+              <h1><SplitText delay={0.1}>Your supplement content stack. Organized, shared, scaled.</SplitText></h1>
             </div>
             
             {/* Clean subheadline */}
